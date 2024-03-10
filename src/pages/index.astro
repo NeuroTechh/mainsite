@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="Astro description" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap"
+			rel="stylesheet"
+		/>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+			rel="stylesheet"
+		/>
+		<link
+			href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+			rel="stylesheet"
+		/>
+		<link
+			href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap"
+			rel="stylesheet"
+		/>
+		<title>Hello</title>
+		<style>
+			* {
+				font-family: "Work Sans", sans-serif;
+			}
+			.animate-pulsing {
+				animation: pulsew 5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+			}
+			.sheesh {
+				background-image: url("https://assets-global.website-files.com/62e3ee10882dc50bcae8d07a/631a5d4631d4c55a475f3e34_noise-50.png");
+				background-position: 0 0;
+				background-size: 100px 100px;
+				font-size: 1rem;
+				font-weight: 300;
+				line-height: 1.5;
+			}
+			.babe {
+				font-family: "Open Sans", sans-serif;
+			}
+			@keyframes pulsew {
+				50% {
+					opacity: 0.5;
+				}
+			}
+		</style>
+	</head>
+	<body
+		class="h-screen w-screen bg-[#111] text-white overflow-hidden flex flex-col justify-center items-center gap-8 relative"
+	>
+		<div class="absolute inset-0 w-full h-full sheesh" aria-hidden="true">
+			<img
+				src="https://fly.io/phx/ui/images/hero-shapes-4953dfbdc99552f9505b0f9420e436b2.webp?vsn=d"
+				class="w-full h-full object-cover opacity-50 md:opacity-20 animate-pulsing"
+			/>
+		</div>
+		<!-- <div
+			class="w-[calc(100%-10px)] h-[calc(100%-10px)] bg-[#222222] rounded-2xl m-auto border-2 border-[#FF0066]"
+		>
+		</div> -->
+		<!-- <h1 class="">Hii</h1> -->
+		<div
+			class="z-10 flex flex-col justify-center items-center gap-10 md:gap-8 text-center px-4 -mt-[10vh] md:-mt-[0vh]"
+		>
+			<h1
+				class="text-transparent bg-clip-text bg-gradient-to-br from-[#FF0066] via-[#9061D1] to-[#9061D1] text-6xl md:text-9xl  font-bold babe"
+			>
+				Neurotechh
+			</h1>
+			<h3 class="text-xl md:text-2xl">
+				A <span class="bg-[#FF0066] rounded p-1 font-bold"
+					>Community</span
+				>
+				of Developers, <span class="italic">Comming Soon 🚀</span>
+			</h3>
+		</div>
+	</body>
+</html>
