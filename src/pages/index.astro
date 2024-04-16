@@ -53,13 +53,24 @@ import SpeedInsights from "@vercel/speed-insights/astro";
 				font-family: "Outfit", sans-serif;
 			}
 			.grad {
-				background: linear-gradient(0deg, #000 0, hsla(0, 0%, 100%, 0)),
+				background: linear-gradient(
+						327.21deg,
+						rgba(33, 0, 75, 0.24) 20.65%,
+						rgba(60, 0, 136, 0) 50% /* Increased to 50% */
+					),
 					linear-gradient(
-						90deg,
-						rgba(142, 97, 209, 0.4),
-						rgba(255, 0, 102, 0.4)
-					);
-				background-position-x: 0%, 0%;
+						245.93deg,
+						rgba(209, 21, 111, 0.16) 20%,
+						rgba(209, 25, 80, 0) 50% /* Increased to 50% */
+					),
+					linear-gradient(
+						147.6deg,
+						rgba(58, 19, 255, 0) 20% /* Increased to 20% */,
+						rgba(98, 19, 255, 0.01) 90% /* Increased to 90% */
+					),
+					#11111181;
+
+				/* background-position-x: 0%, 0%;
 				background-position-y: 0%, 0%;
 				background-repeat: repeat, repeat;
 				background-size: auto, auto;
@@ -67,49 +78,79 @@ import SpeedInsights from "@vercel/speed-insights/astro";
 					150% 150%,
 					150% 150%;
 				background-position: bottom;
-				background-repeat: no-repeat;
+				background-repeat: no-repeat; */
 			}
 			.heroh1 {
 				font-size: 58px;
 				line-height: 60px;
 				letter-spacing: -1.92px;
-				font-weight: 700;
+				font-weight: 500;
 				margin-bottom: 24px;
-				background: linear-gradient(#ff0066, #ff0066cc);
+				background: linear-gradient(
+					to right,
+					rgb(164, 21, 253),
+					rgb(255, 63, 155)
+				);
 				background-clip: border-box;
 				-webkit-background-clip: text;
 				color: transparent;
+				display: inline-block;
 			}
 			.heroh3 {
 				font-size: 24px;
 				line-height: 36px;
 				letter-spacing: -0.96px;
-				font-weight: 400;
+				font-weight: 300;
 				color: #fff;
 			}
 			.gradient {
-				background: linear-gradient(100deg, #ff0066, #9061d1);
+				background: linear-gradient(100deg, #ff0066, #c661d1);
+				background-size: 200% 100%; /* Double the width of the gradient */
+				animation: ease-in-out 5s linear infinite; /* Adjust duration as needed */
+			}
+
+			@keyframes slide {
+				0% {
+					background-position: 0 0;
+				}
+				100% {
+					background-position: -100% 0; /* Move the gradient to the right by 100% */
+				}
 			}
 		</style>
 	</head>
 	<body
 		class="min-h-screen min-w-screen bg-[#222] text-white overflow-hidden flex flex-col justify-center items-center gap-8 relative"
 	>
+		<SpeedInsights />
 		<div
 			class="absolute inset-0 w-screen h-screen sheesh grad"
 			aria-hidden="true"
 		>
 		</div>
 		<div
+			class="absolute inset-0 w-screen h-screen -z-10 opacity-30 bg-black"
+			aria-hidden="true"
+		>
+			<div style="opacity:1;transform:none">
+				<!-- <img
+					src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/IBM_Q_system_%28Fraunhofer_2%29.jpg/1280px-IBM_Q_system_%28Fraunhofer_2%29.jpg"
+					class="max-w-2xl w-full h-full object-cover mx-auto hidden md:block"
+				/> -->
+			</div>
+		</div>
+		<div
 			class="z-10 flex flex-col justify-center items-center gap-10 md:gap-8 text-center px-4 -mt-[10vh] md:-mt-[0vh]"
 		>
-			<h1 class="heroh1">Neurotechh</h1>
+			<span class="mx-auto">
+				<h1 class="heroh1">N</h1>
+				<h1 class="heroh1">eurotechh</h1>
+			</span>
 			<h3 class="heroh3">
-				A <span class="gradient rounded p-1 font-semibold mx-1"
+				A <span class="gradient rounded p-1 font-medium mx-1"
 					>Community</span
 				> of Developers Comming Soon.
 			</h3>
 		</div>
-		<SpeedInsights />
 	</body>
 </html>
