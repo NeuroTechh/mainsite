@@ -1,54 +1,63 @@
-# Astro Starter Kit: Basics
+# A Guide on Getting this setup on your local machine
 
-```sh
-npm create astro@latest -- --template basics
+### Install Nodejs: https://nodejs.org/en
+
+### Install Git: https://git-scm.com/downloads
+
+## Then run the following commands in your terminal
+
+```bash
+git clone https://github.com/NeuroTechh/blogs.git
+cd blogs
+npm install
+npm run dev
 ```
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
+### Then open your browser and go to http://localhost:4321 Any changes you make to the code will be reflected in the browser
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+### Initial Tasks to be done
 
-![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
+-   [ ] Install Nodejs
+-   [ ] Install Git
+-   [ ] Clone the repository
+-   [ ] Install the dependencies and run the project
+-   [ ] Open the browser and go to http://localhost:4321
+-   [ ] Make changes to the code and see the changes in the browser
+-   [ ] Create a new branch, add changes to git, commit them and then push the changes
 
-## 🚀 Project Structure
+### Next Steps
 
-Inside of your Astro project, you'll see the following folders and files:
+-   [ ] On your branch, create a new file in the `pages` directory with the task name as the file name like `homepage.astro`
+-   [ ] Import the Layout.astro file in the new file you created
+-   [ ] Make the Content and make it responsive, asin it should look good on all screen sizes
+-   [ ] Add the new file to git, commit the changes and push the changes to your branch
+-   Create a pull request to the main branch
 
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src/
-│   ├── components/
-│   │   └── Card.astro
-│   ├── layouts/
-│   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
+### Coming to The pages
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+Home Page
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+-   [ ] Make Cards for the blogs and using Grids, make them responsive. On Pc, it should be 2 cards in a row and on mobile, 1 card in a row.
+-   [ ] The first card should be spanned across the whole width of the screen
+-   [ ] Make the entire card clickable and it should take you to the blog page
 
-Any static assets, like images, can be placed in the `public/` directory.
+Blog Page
 
-## 🧞 Commands
+-   [ ] Using Tailwind Typography, make the blog page look good
+-   [ ] This page will have Title, Author, Date, and the content of the blog post
+-   [ ] Just add some random text for now using all the different styles of typography
+-   [ ] Make the page responsive
 
-All commands are run from the root of the project, from a terminal:
+Contact US / About Page
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+-   [ ] Make a simple layout for the About us page
+-   [ ] For Contact US Make a simple form with Name, Email, and Message
+-   [ ] Add a submit button
+-   [ ] Make the page responsive
 
-## 👀 Want to learn more?
+## Resources
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+-   For Learning About Astrojs: https://astro.build/
+-   For Learning About Tailwindcss: https://tailwindcss.com/
+-   For Quickstart on Git: https://www.theodinproject.com/lessons/foundations-git-basics
+-   For Learning About Git: https://git-scm.com/book/en/v2
