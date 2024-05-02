@@ -1,0 +1,127 @@
+---
+import Layout from "../../layout/Layout.astro";
+import Navbar from "../../components/navbar.astro";
+import client from "../../lib/sanity";
+import groq from "groq";
+import { formatDate } from "../../lib/date";
+import { urlFor } from "../../lib/image";
+const post = await client.fetch(
+	groq`*[_type == "post"] | order(_updatedAt desc)
+	{
+		title,
+		slug,
+		mainImage,
+		"authors": authors[]->{
+			slug,name,image
+		},
+  		publishedAt,
+		"categories": categories[]->{
+			title,
+			slug
+		},	
+		description
+	}
+	`
+);
+---
+
+<Layout
+	imgurl="https://neurotechh.live/preview.png"
+	title="Blogs | Neurotechh"
+	description="Blogs on everythig Tech and Tutorial on how to build cool stuff with code"
+>
+	<section
+		class="flex flex-col justify-center items-center min-h-[130vh] w-full max-w-7xl mx-auto gap-10 px-6 mt-24 mb-10"
+	>
+		<Navbar />
+		<h1 class="text-4xl md:text-5xl lg:text-8xl font-medium 2xl:space-y-16">
+			Neurotechh Blogs
+		</h1>
+		<p class="text-lg md:text-xl">
+			What we have been upto, What we have learnt and Built, all dumped
+			here, Enjoy!
+		</p>
+		<a
+			href={`/blogs/${post[0].slug.current}`}
+			class="w-full h-fit bg-card/70 bg-grain bg-[length:200px_200px] rounded-2xl flex flex-col md:flex-row hover:scale-95 transition duration-300 ease-in-out"
+		>
+			<img
+				src={urlFor(post[0].mainImage).url()}
+				alt="Neurotechh Blogs"
+				class="rounded-2xl w-full h-full m-auto aspect-video object-cover"
+			/>
+			<div class="space-y-6 flex flex-col justify-around p-6">
+				<h1
+					class="text-3xl md:text-4xl lg:text-5xl font-medium 2xl:space-y-16"
+				>
+					{post[0].title}
+				</h1>
+				<p class="text-md font-thin">
+					{post[0].description}
+				</p>
+				<span class="space-x-5 flex flex-row items-center">
+					<img
+						src={urlFor(post[0].authors[0].image).url()}
+						alt="avatar"
+						class="relative inline-block object-cover object-center w-12 h-12 rounded-full"
+					/>
+					<span>
+						<span class="text-lg font-bold text-brand"
+							>{post[0].authors[0].name}</span
+						>
+						<span class="text-md text-text/80 block"
+							>{formatDate(post[0].publishedAt)}
+						</span>
+					</span>
+				</span>
+			</div>
+		</a>
+		<section
+			class="grid grid-rows-1 md:grid-cols-3 place-items-center items-center justify-around w-full gap-10 m-auto"
+		>
+			{
+				post.slice(1).map((post) => (
+					<>
+						<a
+							href={`/blogs/${post.slug.current}`}
+							class="m-auto flex flex-col items-center justify-center gap-5 bg-card/70 bg-grain bg-[length:200px_200px] rounded-xl place-items-center w-full h-fit hover:scale-95 transition duration-300 ease-in-out"
+						>
+							<div class="flex flex-col justify-around">
+								<img
+									src={urlFor(post.mainImage).url()}
+									alt="Neurotechh Blogs"
+									class="rounded-2xl w-full h-52 object-cover"
+								/>
+								<div class="space-y-6 py-10 px-6">
+									<h1 class="text-2xl md:text-3xl lg:text-4xl font-medium 2xl:space-y-16">
+										{post.title}
+									</h1>
+									<p class="text-md font-thin">
+										{post.description}
+									</p>
+									<span class="space-x-5 flex flex-row items-center">
+										<img
+											src={urlFor(
+												post.authors[0].image
+											).url()}
+											alt="avatar"
+											class="relative inline-block object-cover object-center w-12 h-12 rounded-full"
+										/>
+										<span>
+											<span class="text-lg font-bold text-brand">
+												{post.authors[0].name}
+											</span>
+											<span class="text-md text-text/80 block">
+												{formatDate(post.publishedAt)}
+											</span>
+										</span>
+									</span>
+								</div>
+							</div>
+						</a>
+					</>
+				))
+			}
+		</section>
+	</section>
+</Layout>

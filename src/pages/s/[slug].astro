@@ -1,6 +1,6 @@
 ---
 const { slug } = Astro.params;
-import { supabase } from "../lib/supabase";
+import { supabase } from "../../lib/supabase";
 const { data, error } = await supabase
 	.from("links_naitechh")
 	.select("long_url")
