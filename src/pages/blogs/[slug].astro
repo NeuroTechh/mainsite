@@ -26,7 +26,6 @@ const { authors, categories, body, mainImage, publishedAt, title } =
 			slug,
 		}
 	);
-console.log(body);
 import PortableText from "../../components/PortableText.astro";
 ---
 
@@ -72,7 +71,7 @@ import PortableText from "../../components/PortableText.astro";
 				</a>
 			))
 		}
-		<img src={urlFor(mainImage).url()} class="border-2" />
+		<img src={urlFor(mainImage).url()} class="border-2 border-border" />
 		<PortableText portableText={body} />
 	</article>
 </Layout>
