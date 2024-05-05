@@ -33,16 +33,16 @@ import PortableText from "../../components/PortableText.astro";
 <Layout>
 	<Navbar />
 	<article
-		class="mt-[20vh] my-auto prose md:prose-lg prose-pink prose-invert prose-headings:text-text prose-img:rounded-xl prose-img:shadow-2xl prose-img:min-h-full md:prose-img:w-[60%] prose-img:mx-auto prose-figure:mx-auto text-justify prose-pre:text-left prose-headings:flex prose-headings:items-center prose-headings:gap-2 w-full flex flex-col justify-center mx-auto pt-[10vh] pb-[5vh] px-6 md:px-0"
+		class="mt-[20vh] my-auto prose md:prose-lg prose-pink no-underline prose-invert prose-headings:text-text prose-img:rounded-xl prose-img:shadow-2xl prose-img:min-h-full md:prose-img:w-[60%] prose-img:mx-auto prose-figure:mx-auto text-justify prose-pre:text-left prose-headings:flex prose-headings:items-center prose-headings:gap-2 w-full flex flex-col justify-center mx-auto pt-[10vh] pb-[5vh] px-6 md:px-0"
 	>
-		<h1>{title}</h1>
+		<h1 class="font-robotic">{title}</h1>
 		<p>By</p>
 		{
 			authors.map((author) => (
 				<>
 					<a
 						href={`/author/${author.slug.current}`}
-						class="text-blue-500 space-x-5 flex flex-row items-center w-1/2"
+						class="text-blue-500 no-underline space-x-5 flex flex-row items-center w-1/2"
 					>
 							<img
 								src={urlFor(authors[0].image).url()}
@@ -50,7 +50,7 @@ import PortableText from "../../components/PortableText.astro";
 								class="relative inline-block object-cover object-center w-12 h-12 rounded-full"
 							/>
 							<span>
-								<span class="textq-lg font-bold text-brand">
+								<span class="textq-lg no-underline font-bold text-brand">
 									{authors[0].name}
 								</span>
 								<span class="text-md text-text/80 block">
@@ -66,7 +66,7 @@ import PortableText from "../../components/PortableText.astro";
 			categories.map((category) => (
 				<a
 					href={`/category/${category.slug.current}`}
-					class="text-blue-500"
+					class="text-blue-500 no-underline"
 				>
 					{category.title}
 				</a>
