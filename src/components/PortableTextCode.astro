@@ -1,0 +1,12 @@
+---
+const { code, language } = Astro.props.node;
+import { Code } from "astro:components";
+---
+
+<Code
+	code={code}
+	lang={language}
+	wrap
+	theme={"vitesse-dark"}
+	class:list={"border-2 border-border font-mono"}
+/>

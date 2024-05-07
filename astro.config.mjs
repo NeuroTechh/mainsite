@@ -8,11 +8,11 @@ import vercel from "@astrojs/vercel/serverless";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://neurotechh.live/",
-  integrations: [tailwind(), sitemap()],
-  output: "server",
-  adapter: vercel(),
-  prefetch: {
-    include: "all"
-  }
+	site: "https://neurotechh.live/",
+	integrations: [tailwind(), sitemap()],
+	output: "server",
+	adapter: vercel(),
+	prefetch: {
+		include: "all",
+	},
 });

@@ -1,155 +1,49 @@
 ---
 export const prerender = true;
+import Layout from "../layout/Layout.astro";
+import Grid from "../assets/svg/grid.svg";
 ---
 
-<!doctype html>
-<html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<!-- Primary Meta Tags -->
-		<title>Neurotechh</title>
-		<meta name="title" content="Neurotechh" />
-		<meta
-			name="description"
-			content="A Community of Developers | Innovators"
-		/>
-
-		<!-- Open Graph / Facebook -->
-		<meta property="og:type" content="website" />
-		<meta property="og:url" content="https://neurotechh.live/" />
-		<meta property="og:title" content="Neurotechh" />
-		<meta
-			property="og:description"
-			content="A Community of Developers | Innovators"
-		/>
-		<meta property="og:image" content="https://neurotechh.live/prev.png" />
-
-		<!-- Twitter -->
-		<meta property="twitter:card" content="summary_large_image" />
-		<meta property="twitter:url" content="https://neurotechh.live/" />
-		<meta property="twitter:title" content="Neurotechh" />
-		<meta
-			property="twitter:description"
-			content="A Community of Developers | Innovators"
-		/>
-		<meta
-			property="twitter:image"
-			content="https://neurotechh.live/prev.png"
-		/>
-
-		<meta name="description" content="Astro description" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<link rel="sitemap" href="/sitemap-index.xml" />
-		<link rel="preconnect" href="https://fonts.googleapis.com" />
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-		<link
-			href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap"
-			rel="stylesheet"
-		/>
-		<style>
-			* {
-				font-family: "Outfit", sans-serif;
-			}
-			.grad {
-				background: linear-gradient(
-						327.21deg,
-						rgba(33, 0, 75, 0.24) 20.65%,
-						rgba(60, 0, 136, 0) 50% /* Increased to 50% */
-					),
-					linear-gradient(
-						245.93deg,
-						rgba(209, 21, 111, 0.16) 20%,
-						rgba(209, 25, 80, 0) 50% /* Increased to 50% */
-					),
-					linear-gradient(
-						147.6deg,
-						rgba(58, 19, 255, 0) 20% /* Increased to 20% */,
-						rgba(98, 19, 255, 0.01) 90% /* Increased to 90% */
-					),
-					#11111181;
-
-				/* background-position-x: 0%, 0%;
-				background-position-y: 0%, 0%;
-				background-repeat: repeat, repeat;
-				background-size: auto, auto;
-				background-size:
-					150% 150%,
-					150% 150%;
-				background-position: bottom;
-				background-repeat: no-repeat; */
-			}
-			.heroh1 {
-				font-size: 58px;
-				line-height: 60px;
-				letter-spacing: -1.92px;
-				font-weight: 500;
-				margin-bottom: 24px;
-				background: linear-gradient(
-					to right,
-					rgb(164, 21, 253),
-					rgb(255, 63, 155)
-				);
-				background-clip: border-box;
-				-webkit-background-clip: text;
-				color: transparent;
-				display: inline-block;
-			}
-			.heroh3 {
-				font-size: 24px;
-				line-height: 36px;
-				letter-spacing: -0.96px;
-				font-weight: 300;
-				color: #fff;
-			}
-			.gradient {
-				background: linear-gradient(100deg, #ff0066, #c661d1);
-				background-size: 200% 100%; /* Double the width of the gradient */
-				animation: ease-in-out 5s linear infinite; /* Adjust duration as needed */
-			}
-
-			@keyframes slide {
-				0% {
-					background-position: 0 0;
-				}
-				100% {
-					background-position: -100% 0; /* Move the gradient to the right by 100% */
-				}
-			}
-		</style>
-	</head>
-	<body
-		class="min-h-screen min-w-screen bg-[#222] text-white overflow-hidden flex flex-col justify-center items-center gap-8 relative"
+<Layout
+	imgurl="https://neurotechh.live/preview.png"
+	title="Blogs | Neurotechh"
+	description="Blogs on everythig Tech and Tutorial on how to build cool stuff with code"
+>
+	<section
+		class="min-h-[50vh] md:h-[90vh] mb-10 w-full max-w-[90vw] bg-text mx-auto rounded-2xl mt-[13vh] md:mt-[15vh] p-10 text-background relative flex flex-col justify-center items-start gap-10 overflow-hidden"
 	>
-		<div
-			class="absolute inset-0 w-screen h-screen sheesh grad"
-			aria-hidden="true"
+		<h1
+			class="font-robot font-black text-brandred text-5xl md:6xl lg:text-8xl z-10"
 		>
-		</div>
-		<div
-			class="absolute inset-0 w-screen h-screen -z-10 opacity-30 bg-black"
-			aria-hidden="true"
-		>
-			<div style="opacity:1;transform:none">
-				<!-- <img
-					src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/IBM_Q_system_%28Fraunhofer_2%29.jpg/1280px-IBM_Q_system_%28Fraunhofer_2%29.jpg"
-					class="max-w-2xl w-full h-full object-cover mx-auto hidden md:block"
-				/> -->
-			</div>
-		</div>
-		<div
-			class="z-10 flex flex-col justify-center items-center gap-10 md:gap-8 text-center px-4 -mt-[10vh] md:-mt-[0vh]"
-		>
-			<span class="mx-auto">
-				<h1 class="heroh1">N</h1>
-				<h1 class="heroh1">eurotechh</h1>
-			</span>
-			<h3 class="heroh3">
-				A <span class="gradient rounded p-1 font-medium mx-1"
-					>Community</span
-				> of Developers Comming Soon.
-			</h3>
-		</div>
-	</body>
-</html>
+			Neurotechh
+		</h1>
+		<h3 class="font-extrabold text-xl md:2xl lg:text-3xl text-[#444] z-10">
+			Community of <br /> Developers <span
+				class="md:pt-2 hidden md:inline-block">|</span
+			><br class="md:hidden" />
+			<span class="text-brandpink"> Inovators</span><br
+				class="md:hidden"
+			/>
+			<span class="hidden md:inline-block">|</span> Students<br
+				class="md:hidden"
+			/>
+		</h3>
+		<img
+			src={Grid.src}
+			class="absolute inset-0 z-0 w-full h-full md:h-fit opacity-30"
+		/>
+		<img
+			src="https://hackclub.com/_next/image/?url=%2F_next%2Fstatic%2Fmedia%2Fouternet-110.c7a20868.jpg&w=3840&q=75"
+			class="md:absolute md:-right-[10%] w-full md:w-1/2 h-full md:h-fit rounded-2xl z-20"
+		/>
+		<img
+			src="https://hackclub.com/_next/image/?url=%2F_next%2Fstatic%2Fmedia%2Fouternet-110.c7a20868.jpg&w=3840&q=75"
+			class="hidden md:block absolute -top-1/3 -right-[15%] w-1/2 h-full md:h-fit rounded-2xl z-10"
+		/>
+		<img
+			src="https://hackclub.com/_next/image/?url=%2F_next%2Fstatic%2Fmedia%2Fouternet-110.c7a20868.jpg&w=3840&q=75"
+			class="hidden md:block absolute top-[55%] right-0 w-1/2 h-full md:h-fit rounded-2xl z-30"
+		/>
+		<!-- The above image is for example, use some personal Photo -->
+	</section>
+</Layout>
