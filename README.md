@@ -37,9 +37,9 @@ npm run dev
 
 Home Page
 
--   [ ] Make Cards for the blogs and using Grids, make them responsive. On Pc, it should be 2 cards in a row and on mobile, 1 card in a row.
--   [ ] The first card should be spanned across the whole width of the screen
--   [ ] Make the entire card clickable and it should take you to the blog page
+-   [x] Make Cards for the blogs and using Grids, make them responsive. On Pc, it should be 2 cards in a row and on mobile, 1 card in a row.
+-   [x] The first card should be spanned across the whole width of the screen
+-   [x] Make the entire card clickable and it should take you to the blog page
 
 Blog Page
 
@@ -59,5 +59,6 @@ Contact US / About Page
 
 -   For Learning About Astrojs: https://astro.build/
 -   For Learning About Tailwindcss: https://tailwindcss.com/
+-   For Setting Up Git: https://www.theodinproject.com/lessons/foundations-setting-up-git
 -   For Quickstart on Git: https://www.theodinproject.com/lessons/foundations-git-basics
 -   For Learning About Git: https://git-scm.com/book/en/v2
