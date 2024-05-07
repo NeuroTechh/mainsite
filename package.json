@@ -1,34 +1,36 @@
 {
-	"name": "",
-	"type": "module",
-	"version": "0.0.1",
-	"scripts": {
-		"dev": "astro dev",
-		"start": "astro dev",
-		"build": "astro build",
-		"preview": "astro preview",
-		"astro": "astro"
-	},
-	"dependencies": {
-		"@astrojs/node": "^8.2.5",
-		"@astrojs/sitemap": "^3.1.4",
-		"@astrojs/tailwind": "^5.1.0",
-		"@astrojs/vercel": "^7.5.4",
-		"@sanity/astro": "^3.0.0",
-		"@sanity/client": "^6.15.20",
-		"@sanity/image-url": "^1.0.2",
-		"@supabase/supabase-js": "^2.43.0",
-		"@tailwindcss/forms": "^0.5.7",
-		"aos": "^2.3.4",
-		"astro": "^4.4.3",
-		"astro-navbar": "^2.3.2",
-		"astro-portabletext": "^0.9.9",
-		"groq": "^3.40.0",
-		"sanity": "^3.40.0",
-		"tailwindcss": "^3.4.1",
-		"typed.js": "^2.1.0"
-	},
-	"devDependencies": {
-		"@tailwindcss/typography": "^0.5.13"
-	}
+  "name": "",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/node": "^8.2.5",
+    "@astrojs/sitemap": "^3.1.4",
+    "@astrojs/tailwind": "^5.1.0",
+    "@astrojs/vercel": "^7.5.4",
+    "@sanity/astro": "^3.0.0",
+    "@sanity/client": "^6.15.20",
+    "@sanity/image-url": "^1.0.2",
+    "@supabase/supabase-js": "^2.43.0",
+    "@tailwindcss/forms": "^0.5.7",
+    "aos": "^2.3.4",
+    "astro": "^4.4.3",
+    "astro-navbar": "^2.3.2",
+    "astro-portabletext": "^0.9.9",
+    "groq": "^3.40.0",
+    "sanity": "^3.40.0",
+    "tailwindcss": "^3.4.1",
+    "typed.js": "^2.1.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/typography": "^0.5.13",
+    "prettier": "^3.2.5",
+    "prettier-plugin-tailwindcss": "^0.5.14"
+  }
 }
