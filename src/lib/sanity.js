@@ -21,5 +21,4 @@ export async function getPost(slug) {
     },
   );
 }
-
 export default client;
