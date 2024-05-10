@@ -20,7 +20,7 @@ const category = await client.fetch(
 		slug,
 	}`
 );
-// console.log(category);
+
 const post = await client.fetch(
 	groq`*[_type=="post" && $slug in categories[]->slug.current]{
 		title,
@@ -41,7 +41,6 @@ const post = await client.fetch(
 	}
 );
 
-console.log(post);
 ---
 
 <Layout
@@ -49,9 +48,11 @@ console.log(post);
 	title="Blogs | Neurotechh"
 	description="Blogs on everythig Tech and Tutorial on how to build cool stuff with code"
 >
-	<Navbar /><br /><br /><br />
-	<center
-		><h1
+	<Navbar />
+	<div
+		class="flex flex-col items-center justify-center min-h-screen py-12 w-full gap-2 z-0"
+	>
+		<h1
 			class="text-5xl md:text-8xl font-black 2xl:space-y-16 font-sans2 mt-10 uppercase"
 			data-aos="fade-up"
 			data-aos-once="true"
@@ -67,21 +68,24 @@ console.log(post);
 			data-aos-delay="200"
 		>
 			Below you can find all our related blogs.
-		</p><br /><br />
-		{
-			category.map((cat) => (
-				<a
-					href={`/category/${cat.slug.current}`}
-					class={`inline-block mr-3 rounded border border-current px-8 py-3 text-sm font-medium text-white transition hover:scale-[1.01] hover:shadow-xl focus:outline-none focus:ring ${cat.slug.current === slug ? "bg-brandred" : ""}`}
-				>
-					{cat.title}
-				</a>
-			))
-		}
-		<hr class="my-6 border-t-2 border-gray-300 rounded-full" />
+		</p>
+		<div class="flex flex-row gap-3 md:gap-5 pt-5">
+			{
+				category.map((cat) => (
+					<a
+						href={`/category/${cat.slug.current}`}
+						class={`inline-block mr-3 rounded-full hover:border px-4 md:px-8 py-3 text-sm text-white transition hover:scale-[1.01] hover:shadow-xl focus:outline-none focus:ring font-bold ${cat.slug.current === slug ? "bg-brandred border-0 hover:border-0" : ""}`}
+					>
+						{cat.title}
+					</a>
+				))
+			}
+		</div>
+
+		<div class="my-6 border-t-2 border-gray-300 rounded-full w-full"></div>
 
 		<section
-			class="grid grid-rows-1 md:grid-cols-3 place-items-center text-left items-center justify-between m-10 gap-10 auto-rows-max w-full"
+			class="grid grid-rows-1 md:grid-cols-3 place-items-center items-center justify-around m-10 gap-10"
 		>
 			{
 				post.map((post, index) => (
@@ -129,5 +133,5 @@ console.log(post);
 				))
 			}
 		</section>
-	</center>
+	</div>
 </Layout>

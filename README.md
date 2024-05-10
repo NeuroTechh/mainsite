@@ -55,6 +55,10 @@ Contact US / About Page
 - [ ] Add a submit button
 - [ ] Make the page responsive
 
+# TODO
+
+- Code Glitch Effect on Hero
+
 ## Resources
 
 -   For Learning About Astrojs: https://astro.build/

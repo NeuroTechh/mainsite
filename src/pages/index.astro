@@ -78,6 +78,7 @@ const post = await client.fetch(
 			data-aos="fade-up"
 			data-aos-once="true"
 			data-aos-duration="800"
+			data-value="Neurotechh"
 		>
 			Neurotechh
 		</h1>
@@ -240,4 +241,33 @@ const post = await client.fetch(
 			</a>
 		</ul>
 	</section>
+	<script>
+		const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+		let interval = null;
+
+		function animateText(event) {
+			let iteration = 0;
+			clearInterval(interval);
+			interval = setInterval(() => {
+				event.target.innerText = event.target.innerText
+					.split("")
+					.map((letter, index) => {
+						if (index < iteration) {
+							return event.target.dataset.value[index];
+						}
+
+						return letters[Math.floor(Math.random() * 26)];
+					})
+					.join("");
+
+				if (iteration >= event.target.dataset.value.length) {
+					clearInterval(interval);
+				}
+
+				iteration += 1 / 3;
+			}, 90);
+		}
+		const code = document.getElementById("codee");
+		animateText({ target: code });
+	</script>
 </Layout>
