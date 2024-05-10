@@ -64,28 +64,27 @@ const post = await client.fetch(
 			data-aos-duration="800"
 			data-aos-delay="200"
 		>
-			Welcome to the world of <span
-				class="bg-brandred p-2 rounded uppercase font-bold"
-				>{unslugify(slug)}</span
-			> Below you can find all our related blogs.
-		</p><br /><br />
-		{
-			category.map((cat) => (
-				<a
-					href={`/category/${cat.slug.current}`}
-					class="inline-block mr-3 rounded border border-current px-8 py-3 text-sm font-medium text-white transition hover:scale-[1.01] hover:shadow-xl focus:outline-none focus:ring hover:text-red-400 focus:text-white"
-				>
-					{cat.title}
-				</a>
-			))
-		}
-		<hr class="my-6 border-t-2 border-gray-300 rounded-full" />
+			Below you can find all our related blogs.
+		</p>
 
-		<div class="flex flex-wrap justify-center">
-			<section
-				class="grid grid-rows-1 md:grid-cols-3 place-items-center items-center justify-around m-10 gap-10"
-			>
-				<!-- {
+		<div class="grid grid-flow-col-dense flex-row gap-3 md:gap-5 pt-5 items-center place-items-center w-fit">
+			{
+				category.map((cat) => (
+					<a
+						href={`/category/${cat.slug.current}`}
+						class={`inline-block mr-3 rounded-full hover:border px-4 md:px-8 py-3 text-sm text-white transition hover:scale-[1.01] hover:shadow-xl focus:outline-none focus:ring font-bold ${cat.slug.current === slug ? "bg-brandred border-0 hover:border-0" : ""}`}
+					>
+						{cat.title}
+					</a>
+				))
+			}
+		</div>
+		<div class="my-6 border-t-2 border-gray-300 rounded-full w-full"></div>
+
+		<section
+			class="grid grid-rows-1 md:grid-cols-3 place-items-center items-center justify-around m-10 gap-10"
+		>
+			{
 				post.map((post, index) => (
 					<>
 						<a
@@ -129,7 +128,7 @@ const post = await client.fetch(
 						</a>
 					</>
 				))
-			} -->
+			} 
 			</section>
 		</div>
 	</center>

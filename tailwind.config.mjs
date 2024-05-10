@@ -4,12 +4,12 @@ export default {
   theme: {
     extend: {
       colors: {
-        background: "#111",
-        card: "#231f20",
+        background: "#1a1a1a",
+        card: "#232323",
         text: "#f1f1f1",
         border: "#7c7c6f",
-        brandpink: "#fe0167",
-        brandred: "#c93928",
+        brandpink: "#c93928",
+        brandred: "#fe0167",
         blue: "rgb(18, 181, 229)",
         brandlav: "#a415fd",
         peach: "rgb(255, 204, 153)",
