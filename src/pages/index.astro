@@ -71,32 +71,35 @@ const post = await client.fetch(
 		<!-- The above image is for example, use some personal Photo -->
 
 	<section
-		class="min-h-[50vh] lg:h-[90vh] mb-10 w-full mx-auto rounded-2xl mt-[13vh] lg:mt-[15vh] p-10 relative flex flex-col justify-center items-center gap-10 overflow-hidden text-center"
+		class="min-h-[80vh] lg:h-[90vh] mb-10 w-full mx-auto rounded-2xl mt-[13vh] lg:mt-[15vh] p-10 relative flex flex-col justify-center items-center gap-10 overflow-hidden text-center"
 	>
 		<h1
 			class="font-sans2 font-black text-brandred text-5xl lg:text-8xl z-10"
 			data-aos="fade-up"
 			data-aos-once="true"
 			data-aos-duration="800"
+			data-value="Neurotechh"
 		>
 			Neurotechh
 		</h1>
 		<h3
-			class="font-extrabold text-xl lg:2xl lg:text-3xl z-10"
+			class="pt-2 text-text my-3 text-sm sm:mt-5 lg:mb-0 sm:text-base lg:text-lg max-w-lg"
 			data-aos="fade-up"
 			data-aos-once="true"
 			data-aos-duration="800"
 		>
-			Community of Developers | Inovators | Students
+			We are a community of student developers who build projects and
+			comeup with innovative solutions! Our aim is to have a community
+			where students can learn and grow together.
 		</h3>
 		<a
-			class="rounded-2xl text-xl font-bold flex items-center justify-center px-4 py-2 uppercase border-2 transition-all duration-150 ease-in-out lg:h-[90px] text-background min-w-56 h-full max-h-20 w-full bg-white/90 sm:w-auto"
+			class="rounded-2xl text-md flex items-center justify-center px-8 py-4 font-semibold uppercase leading-none lg:h-[60px] text-background min-w-56 h-full max-h-20 w-full bg-text sm:w-auto hover:bg-brandred hover:text-text !transition-all duration-200"
 			data-aos="fade-up"
 			data-aos-once="true"
 			data-aos-duration="800"
 			href="https://forms.neurotechh.live/"
 		>
-			Wish to Work with us? Join Now!
+			Wish to join us?
 		</a>
 		<a href="#work">
 			<i data-lucide="chevron-down" class="size-6 animate-bounce"></i>
@@ -140,20 +143,20 @@ const post = await client.fetch(
 			data-aos-once="true"
 			data-aos-duration="800"
 		>
-			What do we do?
+			Our Blogs!
 		</h1>
 		<h3
-			class="font-extrabold text-xl lg:2xl lg:text-3xl text-[#444] z-10"
+			class="font-medium pt-2 text-[#444] my-3 text-md sm:mt-5 lg:mb-0 sm:text-lg lg:text-xl max-w-xl text-center"
 			data-aos="fade-up"
 			data-aos-once="true"
 			data-aos-duration="800"
 		>
-			We build projects, write blogs, host workshops. All for students by
-			students!
+			We write about every cool stuff we build and how we build it. Along
+			with that we also write about the latest tech !
 		</h3>
 
 		<a
-			class="rounded-2xl text-xl flex items-center justify-center px-8 py-4 font-semibold uppercase leading-none [&_svg]:ml-[8px] [&_svg]:mt-[1px] border-2 transition-all duration-150 ease-in-out will-change-transform hover:translate-y-[-2px] active:translate-y-[2px] active:duration-100 lg:h-[90px] text-white min-w-56 h-full max-h-20 w-full bg-[#242427] sm:w-auto"
+			class="rounded-2xl text-md flex items-center justify-center px-8 py-4 font-semibold uppercase leading-none lg:h-[60px] text-text min-w-56 h-full max-h-20 w-full bg-background sm:w-auto hover:bg-brandred hover:text-text !transition-all duration-200"
 			data-aos="fade-up"
 			data-aos-once="true"
 			data-aos-duration="800"
@@ -169,7 +172,7 @@ const post = await client.fetch(
 					<>
 						<a
 							href={`/blogs/${post.slug.current}`}
-							class="m-auto flex flex-col items-center justify-center gap-5 bg-card text-text rounded-xl place-items-center w-full h-fit  hover:!scale-[.97] !transition !ease-in-out !delay-0"
+							class="m-auto flex flex-col items-center justify-center gap-5 bg-card text-text bg-grain bg-[length:200px_200px] rounded-xl place-items-center w-full h-fit  hover:!scale-[.97] !transition !ease-in-out !delay-0"
 							data-aos="fade-up"
 							data-aos-once="true"
 							data-aos-duration="800"
@@ -183,7 +186,7 @@ const post = await client.fetch(
 									class="rounded-2xl w-full h-full lg:h-52 object-cover"
 								/>
 								<div class="space-y-6 py-10 px-6">
-									<h1 class="text-xl lg:text-2xl lg:text-3xl font-bold 2xl:space-y-16 font-sans2 ">
+									<h1 class="text-xl lg:text-3xl font-bold 2xl:space-y-16 font-sans2 ">
 										{post.title}
 									</h1>
 									<span class="space-x-5 flex flex-row items-center">
@@ -225,6 +228,9 @@ const post = await client.fetch(
 		</h1>
 		<ul
 			class="flex flex-row gap-5 lg:gap-10 text-text font-semibold *:tracking-wider"
+			data-aos="fade-up"
+			data-aos-once="true"
+			data-aos-duration="800"
 		>
 			<a
 				href="https://github.com/NeuroTechh/"
@@ -240,4 +246,33 @@ const post = await client.fetch(
 			</a>
 		</ul>
 	</section>
+	<script>
+		const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+		let interval = null;
+
+		function animateText(event) {
+			let iteration = 0;
+			clearInterval(interval);
+			interval = setInterval(() => {
+				event.target.innerText = event.target.innerText
+					.split("")
+					.map((letter, index) => {
+						if (index < iteration) {
+							return event.target.dataset.value[index];
+						}
+
+						return letters[Math.floor(Math.random() * 26)];
+					})
+					.join("");
+
+				if (iteration >= event.target.dataset.value.length) {
+					clearInterval(interval);
+				}
+
+				iteration += 1 / 3;
+			}, 90);
+		}
+		const code = document.getElementById("codee");
+		animateText({ target: code });
+	</script>
 </Layout>

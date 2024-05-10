@@ -11,31 +11,33 @@ import { Image } from "astro:assets";
 ---
 
 <header
-	class="lg:flex justify-between p-3 md:p-5 text-lg md:text-2xl gap-5 w-full fixed top-0 bg-background  bg-[length:200px_200px] items-center z-50 rounded-b-lg bg-opacity-60 backdrop-filter backdrop-blur-lg"
+	class="lg:flex justify-between p-3 md:p-5 text-lg md:text-2xl gap-5 w-full fixed top-0 bg-background bg-grain bg-[length:200px_200px] items-center z-50 rounded-b-lg bg-opacity-60 backdrop-filter backdrop-blur-lg"
 >
 	<Astronav closeOnClick>
 		<div class="flex w-full lg:w-auto justify-between items-center">
-			<Image
-				src="https://neurotechh.live/logo.png"
-				width={100}
-				height={100}
-				alt="Logo"
-				class="relative inline-block h-12 w-12 !rounded-full object-cover object-center"
-			/>
-			<div class="block lg:hidden">
-				<MenuIcon class="w-4 h-4 text-gray-800" />
+			<a href="/">
+				<Image
+					src="https://neurotechh.live/logo.png"
+					width={100}
+					height={100}
+					alt="Logo"
+					class="relative inline-block h-12 w-12 !rounded-full object-cover object-center"
+				/></a
+			>
+			<div class="block lg:hidden space-y-4">
+				<MenuIcon class="size-7 text-text" />
 			</div>
 		</div>
-		<MenuItems class="hidden lg:flex">
-			<ul class="flex flex-col lg:flex-row lg:gap-5">
+		<MenuItems class="hidden lg:flex h-full font-bold md:font-normal">
+			<ul class="flex flex-col gap-5 pt-5 lg:flex-row lg:gap-5">
 				<li>
-					<a href="/">Home</a>
+					<a href="/" class="hover:underline">Home</a>
 				</li>
 				<li>
-					<a href="/blogs">Blogs</a>
+					<a href="/blogs" class="hover:underline">Blogs</a>
 				</li>
 				<li>
-					<a href="/#contact">Contact</a>
+					<a href="/#contact" class="hover:underline">Contact</a>
 				</li>
 			</ul>
 		</MenuItems>

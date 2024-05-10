@@ -20,9 +20,9 @@ const category = await client.fetch(
 		slug,
 	}`
 );
-console.log(category);
+
 const post = await client.fetch(
-	groq`*[_type=="post" && "yash-deshpande" in authors[]->slug.current]{
+	groq`*[_type=="post" && $slug in categories[]->slug.current]{
 		title,
 		slug,
 		mainImage,
@@ -40,6 +40,7 @@ const post = await client.fetch(
 		slug,
 	}
 );
+
 ---
 
 <Layout
@@ -47,15 +48,17 @@ const post = await client.fetch(
 	title="Blogs | Neurotechh"
 	description="Blogs on everythig Tech and Tutorial on how to build cool stuff with code"
 >
-	<Navbar /><br /><br /><br />
-	<center
-		><h1
-			class="text-5xl md:text-8xl font-black 2xl:space-y-16 font-sans2 mt-10"
+	<Navbar />
+	<div
+		class="flex flex-col items-center justify-center min-h-screen py-12 w-full gap-2 z-0"
+	>
+		<h1
+			class="text-5xl md:text-8xl font-black 2xl:space-y-16 font-sans2 mt-10 uppercase"
 			data-aos="fade-up"
 			data-aos-once="true"
 			data-aos-duration="800"
 		>
-			<span class="text-brandred">Category</span> Name
+			<span class="text-brandred">{unslugify(slug)}</span>
 		</h1><br />
 		<p
 			class="text-lg md:text-xl mt-3"
@@ -81,6 +84,10 @@ const post = await client.fetch(
 		</div>
 		<div class="my-6 border-t-2 border-gray-300 rounded-full w-full"></div>
 
+		<section
+			class="grid grid-rows-1 md:grid-cols-3 place-items-center items-center justify-around m-10 gap-10"
+		>
+			{
 		<section
 			class="grid grid-rows-1 md:grid-cols-3 place-items-center items-center justify-around m-10 gap-10"
 		>
