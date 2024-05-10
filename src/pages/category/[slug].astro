@@ -20,9 +20,9 @@ const category = await client.fetch(
 		slug,
 	}`
 );
-console.log(category);
+// console.log(category);
 const post = await client.fetch(
-	groq`*[_type=="post" && "yash-deshpande" in authors[]->slug.current]{
+	groq`*[_type=="post" && $slug in categories[]->slug.current]{
 		title,
 		slug,
 		mainImage,
@@ -40,6 +40,8 @@ const post = await client.fetch(
 		slug,
 	}
 );
+
+console.log(post);
 ---
 
 <Layout
@@ -50,12 +52,12 @@ const post = await client.fetch(
 	<Navbar /><br /><br /><br />
 	<center
 		><h1
-			class="text-5xl md:text-8xl font-black 2xl:space-y-16 font-sans2 mt-10"
+			class="text-5xl md:text-8xl font-black 2xl:space-y-16 font-sans2 mt-10 uppercase"
 			data-aos="fade-up"
 			data-aos-once="true"
 			data-aos-duration="800"
 		>
-			<span class="text-brandred">Category</span> Name
+			<span class="text-brandred">{unslugify(slug)}</span>
 		</h1><br />
 		<p
 			class="text-lg md:text-xl mt-3"
@@ -64,16 +66,13 @@ const post = await client.fetch(
 			data-aos-duration="800"
 			data-aos-delay="200"
 		>
-			Welcome to the world of <span
-				class="bg-brandred p-2 rounded uppercase font-bold"
-				>{unslugify(slug)}</span
-			> Below you can find all our related blogs.
+			Below you can find all our related blogs.
 		</p><br /><br />
 		{
 			category.map((cat) => (
 				<a
 					href={`/category/${cat.slug.current}`}
-					class="inline-block mr-3 rounded border border-current px-8 py-3 text-sm font-medium text-white transition hover:scale-[1.01] hover:shadow-xl focus:outline-none focus:ring hover:text-red-400 focus:text-white"
+					class={`inline-block mr-3 rounded border border-current px-8 py-3 text-sm font-medium text-white transition hover:scale-[1.01] hover:shadow-xl focus:outline-none focus:ring ${cat.slug.current === slug ? "bg-brandred" : ""}`}
 				>
 					{cat.title}
 				</a>
@@ -81,11 +80,10 @@ const post = await client.fetch(
 		}
 		<hr class="my-6 border-t-2 border-gray-300 rounded-full" />
 
-		<div class="flex flex-wrap justify-center">
-			<section
-				class="grid grid-rows-1 md:grid-cols-3 place-items-center items-center justify-around m-10 gap-10"
-			>
-				<!-- {
+		<section
+			class="grid grid-rows-1 md:grid-cols-3 place-items-center text-left items-center justify-between m-10 gap-10 auto-rows-max w-full"
+		>
+			{
 				post.map((post, index) => (
 					<>
 						<a
@@ -129,8 +127,7 @@ const post = await client.fetch(
 						</a>
 					</>
 				))
-			} -->
-			</section>
-		</div>
+			}
+		</section>
 	</center>
 </Layout>
