@@ -1,26 +1,26 @@
 ---
-import groq from "groq";
-import client from "../../lib/sanity";
 import Layout from "../../layout/Layout.astro";
-import PortableText from "../../components/PortableText.astro";
+import Navbar from "../../components/navbar.astro";
+import client from "../../lib/sanity";
+import groq from "groq";
 import { urlFor } from "../../lib/image";
 import { formatDate } from "../../lib/date";
 let { slug } = Astro.params;
 
-const author = await client.fetch(
-	groq`*[_type == "author" && slug.current == $slug][0] {
-    name,
-    image,
-    bio,
-  }`,
-	{
-		slug,
-	}
-);
-if (author == null) {
-	return Astro.redirect("/blogs");
+function unslugify(slug) {
+	return slug
+		.split("-")
+		.map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+		.join(" ");
 }
-const { name, image, bio } = author;
+
+const category = await client.fetch(
+	groq`*[_type=="category"]{
+		title,
+		slug,
+	}`
+);
+console.log(category);
 const post = await client.fetch(
 	groq`*[_type=="post" && "yash-deshpande" in authors[]->slug.current]{
 		title,
@@ -40,36 +40,52 @@ const post = await client.fetch(
 		slug,
 	}
 );
-console.log(post);
 ---
 
-<Layout title={name}>
-	<div
-		class="flex flex-col items-center justify-center min-h-screen py-12"
-		data-aos="fade-up"
-		data-aos-once="true"
-		data-aos-duration="800"
-	>
-		<h1 class="text-5xl md:text-7xl font-bold my-8 font-sans2 text-center">
-			{name}
-		</h1>
-		<img
-			src={urlFor(image).url()}
-			alt={name}
-			class="w-48 h-48 rounded-full object-cover mb-8"
-		/>
-		<article
-			class="max-w-3xl mx-8 prose prose-strong:text-brandred prose-red prose-lg text-justify text-text"
+<Layout
+	imgurl="https://neurotechh.live/preview.png"
+	title="Blogs | Neurotechh"
+	description="Blogs on everythig Tech and Tutorial on how to build cool stuff with code"
+>
+	<Navbar /><br /><br /><br />
+	<center
+		><h1
+			class="text-5xl md:text-8xl font-black 2xl:space-y-16 font-sans2 mt-10"
+			data-aos="fade-up"
+			data-aos-once="true"
+			data-aos-duration="800"
 		>
-			<PortableText portableText={bio} />
-		</article>
-		<h2 class="text-brandred font-bold font-sans2 text-3xl text-left mt-10">
-			Recent blogs
-		</h2>
-		<section
-			class="grid grid-rows-1 md:grid-cols-3 place-items-center items-center justify-around m-10 gap-10"
+			<span class="text-brandred">Category</span> Name
+		</h1><br />
+		<p
+			class="text-lg md:text-xl mt-3"
+			data-aos="fade-up"
+			data-aos-once="true"
+			data-aos-duration="800"
+			data-aos-delay="200"
 		>
-			{
+			Welcome to the world of <span
+				class="bg-brandred p-2 rounded uppercase font-bold"
+				>{unslugify(slug)}</span
+			> Below you can find all our related blogs.
+		</p><br /><br />
+		{
+			category.map((cat) => (
+				<a
+					href={`/category/${cat.slug.current}`}
+					class="inline-block mr-3 rounded border border-current px-8 py-3 text-sm font-medium text-white transition hover:scale-[1.01] hover:shadow-xl focus:outline-none focus:ring hover:text-red-400 focus:text-white"
+				>
+					{cat.title}
+				</a>
+			))
+		}
+		<hr class="my-6 border-t-2 border-gray-300 rounded-full" />
+
+		<div class="flex flex-wrap justify-center">
+			<section
+				class="grid grid-rows-1 md:grid-cols-3 place-items-center items-center justify-around m-10 gap-10"
+			>
+				<!-- {
 				post.map((post, index) => (
 					<>
 						<a
@@ -113,7 +129,8 @@ console.log(post);
 						</a>
 					</>
 				))
-			}
-		</section>
-	</div>
+			} -->
+			</section>
+		</div>
+	</center>
 </Layout>

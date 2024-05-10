@@ -6,7 +6,7 @@ export default {
       colors: {
         background: "#111",
         card: "#231f20",
-        text: "#fffce1",
+        text: "#f1f1f1",
         border: "#7c7c6f",
         brandpink: "#fe0167",
         brandred: "#c93928",
@@ -14,6 +14,7 @@ export default {
         brandlav: "#a415fd",
         peach: "rgb(255, 204, 153)",
         green: "rgb(181, 229, 196)",
+        white: "#f1f1f1",
       },
       fontFamily: {
         sans: ["Space Grotesk", "sans-serif"],
