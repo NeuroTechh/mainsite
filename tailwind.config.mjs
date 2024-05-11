@@ -8,12 +8,10 @@ export default {
         card: "#232323",
         text: "#f1f1f1",
         border: "#7c7c6f",
-        brandpink: "#c93928",
+        brandpink: "#fe0167",
         brandred: "#fe0167",
-        blue: "rgb(18, 181, 229)",
         brandlav: "#a415fd",
         peach: "rgb(255, 204, 153)",
-        green: "rgb(181, 229, 196)",
         white: "#f1f1f1",
       },
       fontFamily: {
