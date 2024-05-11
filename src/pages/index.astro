@@ -74,7 +74,7 @@ const post = await client.fetch(
 		class="min-h-[80vh] lg:h-[90vh] mb-10 w-full mx-auto rounded-2xl mt-[13vh] lg:mt-[15vh] p-10 relative flex flex-col justify-center items-center gap-10 overflow-hidden text-center"
 	>
 		<h1
-			class="font-sans2 font-black text-brandred text-5xl lg:text-8xl z-10"
+			class="font-sans2 font-black text-brandred text-6xl lg:text-8xl z-10"
 			data-aos="fade-up"
 			data-aos-once="true"
 			data-aos-duration="800"
@@ -83,7 +83,7 @@ const post = await client.fetch(
 			Neurotechh
 		</h1>
 		<h3
-			class="pt-2 text-text my-3 text-sm sm:mt-5 lg:mb-0 sm:text-base lg:text-lg max-w-lg"
+			class="pt-2 text-text my-3 text-lg sm:mt-5 lg:mb-0 sm:text-base lg:text-xl md:max-w-[34.5rem] text-justify [text-align-last:center]"
 			data-aos="fade-up"
 			data-aos-once="true"
 			data-aos-duration="800"
@@ -93,7 +93,7 @@ const post = await client.fetch(
 			where students can learn and grow together.
 		</h3>
 		<a
-			class="rounded-2xl text-md flex items-center justify-center px-8 py-4 font-semibold uppercase leading-none lg:h-[60px] text-background min-w-56 h-full max-h-20 w-full bg-text sm:w-auto hover:bg-brandred hover:text-text !transition-all duration-200"
+			class="rounded-2xl text-md flex items-center justify-center px-8 py-4 font-semibold uppercase leading-none lg:h-[60px] text-background min-w-56 h-full max-h-20 w-fit bg-text sm:w-auto hover:bg-brandpink hover:text-text !transition-all duration-200"
 			data-aos="fade-up"
 			data-aos-once="true"
 			data-aos-duration="800"
@@ -138,7 +138,7 @@ const post = await client.fetch(
 			class="absolute inset-0 w-full h-fit object-fill opacity-20 z-0"
 		/>
 		<h1
-			class="font-sans2 font-black text-brandpink text-5xl lg:6xl lg:text-8xl z-10 text-center"
+			class="font-sans2 font-black text-brandred text-5xl lg:6xl lg:text-8xl z-10 text-center"
 			data-aos="fade-up"
 			data-aos-once="true"
 			data-aos-duration="800"
@@ -156,7 +156,7 @@ const post = await client.fetch(
 		</h3>
 
 		<a
-			class="rounded-2xl text-md flex items-center justify-center px-8 py-4 font-semibold uppercase leading-none lg:h-[60px] text-text min-w-56 h-full max-h-20 w-full bg-background sm:w-auto hover:bg-brandred hover:text-text !transition-all duration-200"
+			class="rounded-2xl text-md flex items-center justify-center px-8 py-4 font-semibold uppercase leading-none lg:h-[60px] text-text min-w-56 h-full max-h-20 w-fit bg-background sm:w-auto hover:bg-brandpink hover:text-text !transition-all duration-200"
 			data-aos="fade-up"
 			data-aos-once="true"
 			data-aos-duration="800"
@@ -172,7 +172,7 @@ const post = await client.fetch(
 					<>
 						<a
 							href={`/blogs/${post.slug.current}`}
-							class="m-auto flex flex-col items-center justify-center gap-5 bg-card text-text bg-grain bg-[length:200px_200px] rounded-xl place-items-center w-full h-fit  hover:!scale-[.97] !transition !ease-in-out !delay-0"
+							class="m-auto flex flex-col items-center justify-center gap-5 bg-card text-text  rounded-xl place-items-center w-full h-fit  hover:!scale-[.97] !transition !ease-in-out !delay-0"
 							data-aos="fade-up"
 							data-aos-once="true"
 							data-aos-duration="800"
@@ -186,7 +186,7 @@ const post = await client.fetch(
 									class="rounded-2xl w-full h-full lg:h-52 object-cover"
 								/>
 								<div class="space-y-6 py-10 px-6">
-									<h1 class="text-xl lg:text-3xl font-bold 2xl:space-y-16 font-sans2 ">
+									<h1 class="text-xl lg:text-3xl font-medium 2xl:space-y-16 font-sans2 ">
 										{post.title}
 									</h1>
 									<span class="space-x-5 flex flex-row items-center">
@@ -234,13 +234,13 @@ const post = await client.fetch(
 		>
 			<a
 				href="https://github.com/NeuroTechh/"
-				class="p-2 transition hover:bg-brandred rounded-2xl"
+				class="p-2 transition hover:bg-brandpink rounded-2xl"
 			>
 				<i data-lucide="github" class="size-12"></i></a
 			>
 			<a
 				href="https://www.instagram.com/Neurotechh"
-				class="p-2 transition hover:bg-brandred rounded-2xl"
+				class="p-2 transition hover:bg-brandpink rounded-2xl"
 			>
 				<i data-lucide="instagram" class="size-12"></i>
 			</a>

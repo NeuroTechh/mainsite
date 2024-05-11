@@ -50,22 +50,16 @@ const post = await client.fetch(
 	<Navbar />
 	<div
 		class="flex flex-col items-center justify-center min-h-screen py-12 w-full gap-2 z-0"
+		data-aos="fade-up"
+		data-aos-once="true"
+		data-aos-duration="800"
 	>
 		<h1
 			class="text-5xl md:text-8xl font-black 2xl:space-y-16 font-sans2 mt-10 uppercase"
-			data-aos="fade-up"
-			data-aos-once="true"
-			data-aos-duration="800"
 		>
 			<span class="text-brandred">{unslugify(slug)}</span>
 		</h1><br />
-		<p
-			class="text-lg md:text-xl mt-3"
-			data-aos="fade-up"
-			data-aos-once="true"
-			data-aos-duration="800"
-			data-aos-delay="200"
-		>
+		<p class="text-lg md:text-xl mt-3">
 			Below you can find all our related blogs.
 		</p>
 
@@ -76,7 +70,7 @@ const post = await client.fetch(
 				category.map((cat) => (
 					<a
 						href={`/category/${cat.slug.current}`}
-						class={`inline-block mr-3 rounded-full hover:border px-4 md:px-8 py-3 text-sm text-white transition hover:scale-[1.01] hover:shadow-xl focus:outline-none focus:ring font-bold ${cat.slug.current === slug ? "bg-brandred border-0 hover:border-0" : ""}`}
+						class={`inline-block mr-3 rounded-full hover:border px-4 md:px-8 py-3 text-sm text-white transition hover:scale-[1.01] hover:shadow-xl focus:outline-none focus:ring font-bold ${cat.slug.current === slug ? "bg-brandpink border-0 hover:border-0" : ""}`}
 					>
 						{cat.title}
 					</a>
@@ -93,12 +87,7 @@ const post = await client.fetch(
 					<>
 						<a
 							href={`/blogs/${post.slug.current}`}
-							class="m-auto flex flex-col items-center justify-center gap-5 bg-card/70 bg-grain bg-[length:200px_200px] rounded-xl place-items-center w-full h-fit border-2 border-border/30 hover:border-brandred/50  hover:scale-[.98] transition duration-300 ease-in-out"
-							data-aos="fade-up"
-							data-aos-once="true"
-							data-aos-duration="800"
-							data-aos-delay={index * 100 + 500}
-							transition:name={post.slug.current}
+							class="m-auto flex flex-col items-center justify-center gap-5 hover:bg-card/70  rounded-xl place-items-center w-full h-fit hover:scale-[.98] transition duration-300 ease-in-out p-3"
 						>
 							<div class="flex flex-col justify-around">
 								<img
