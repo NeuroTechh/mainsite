@@ -8,8 +8,6 @@ import { formatDate } from "../../lib/date";
 
 const slug = Astro.url.searchParams.get("category") || "";
 
-console.log(slug);
-
 function unslugify(slug) {
 	return slug
 		.split("-")
@@ -63,7 +61,6 @@ if (slug) {
     }`
 	);
 }
-console.log(post);
 ---
 
 <Layout
@@ -187,8 +184,8 @@ console.log(post);
 			class="hidden md:grid grid-flow-col gap-3 md:gap-5 pt-5 w-fit max-w-3xl mx-auto"
 		>
 			<a
-				href={`/category/`}
-				class="inline-block mr-3 rounded-lg py-3 px-6 text-sm text-white transition hover:scale-[1.01] hover:shadow-xl focus:outline-none focus:ring font-bold text-center bg-brandpink border-0"
+				href={`/blogs/`}
+				class={`inline-block mr-3 rounded-lg py-3 px-6 text-sm text-white transition hover:scale-[1.01] hover:shadow-xl focus:outline-none focus:ring font-bold text-center ${slug == "" ? "bg-brandpink" : "border"}`}
 			>
 				All
 			</a>
@@ -196,14 +193,13 @@ console.log(post);
 				category.map((cat) => (
 					<a
 						href={`?category=${cat.slug.current}`}
-						class="inline-block mr-3 rounded-lg border hover:border-brandred py-3 px-6 text-sm text-white transition hover:scale-[1.01] hover:shadow-xl focus:outline-none focus:ring font-bold text-center "
+						class={`inline-block mr-3 rounded-lg border hover:border-brandred py-3 px-6 text-sm text-white transition hover:scale-[1.01] hover:shadow-xl focus:outline-none focus:ring font-bold text-center ${slug === cat.slug.current ? "bg-brandpink border-0" : "border"}`}
 					>
 						{cat.title}
 					</a>
 				))
 			}
 		</div>
-		<div></div>
 		<section
 			class="grid grid-rows-1 md:grid-cols-3 place-items-center items-center justify-around w-full md:gap-10"
 		>
@@ -253,7 +249,6 @@ console.log(post);
 		function toggleDropdown() {
 			var dropdown = document.getElementById("dropdown");
 			dropdown.classList.toggle("hidden");
-			console.log("clicked");
 		}
 
 		// Close the dropdown if the user clicks outside of it
