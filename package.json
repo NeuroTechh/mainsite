@@ -23,6 +23,7 @@
     "astro": "^4.4.3",
     "astro-navbar": "^2.3.2",
     "astro-portabletext": "^0.9.9",
+    "fuse.js": "^7.0.0",
     "groq": "^3.40.0",
     "lucide": "^0.378.0",
     "sanity": "^3.40.0",

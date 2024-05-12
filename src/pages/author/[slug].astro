@@ -22,7 +22,7 @@ if (author == null) {
 }
 const { name, image, bio } = author;
 const post = await client.fetch(
-	groq`*[_type=="post" && "yash-deshpande" in authors[]->slug.current]{
+	groq`*[_type=="post" && $slug in authors[]->slug.current]{
 		title,
 		slug,
 		mainImage,
