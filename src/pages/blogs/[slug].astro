@@ -30,13 +30,12 @@ const { authors, categories, body, mainImage, publishedAt, title,description } =
 import PortableText from "../../components/PortableText.astro";
 ---
 
-<Layout transition:name={slug} title={title} description={description}>
+<Layout title={title} description={description} >
 	<div
 		class="flex flex-col justify-center items-center md:min-h-[130vh] mt-[10vh] w-full max-w-7xl mx-auto gap-10 px-6 md:mt-24 md:mb-10"
 	>
 		<h1
 			class="text-4xl md:text-6xl font-black 2xl:space-y-16 font-sans2 text-center"
-			transition:name={slug + title}
 		>
 			{title}
 		</h1>
