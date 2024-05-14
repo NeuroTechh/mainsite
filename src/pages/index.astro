@@ -32,61 +32,19 @@ const post = await client.fetch(
 	title="Blogs | Neurotechh"
 	description="Blogs on everythig Tech and Tutorial on how to build cool stuff with code"
 >
-	<!-- 
-	<section
-		class="min-h-[50vh] lg:h-[90vh] mb-10 w-full max-w-[90vw] bg-text mx-auto rounded-2xl mt-[13vh] lg:mt-[15vh] p-10 text-background relative flex flex-col justify-center items-start gap-10 overflow-hidden"
-	>
-		<h1
-			class="font-sans2 font-black text-brandred text-5xl lg:6xl lg:text-8xl z-10"
-		>
-			Neurotechh
-		</h1>
-		<h3 class="font-extrabold text-xl lg:2xl lg:text-3xl text-[#444] z-10">
-			Community of <br /> Developers <span
-				class="lg:pt-2 hidden lg:inline-block">|</span
-			><br class="lg:hidden" />
-			<span class="text-brandpink"> Inovators</span><br
-				class="lg:hidden"
-			/>
-			<span class="hidden lg:inline-block">|</span> Students<br
-				class="lg:hidden"
-			/>
-		</h3>
-		<img
-			src={Grid.src}
-			class="absolute inset-0 z-0 w-full h-full lg:h-fit opacity-30"
-		/>
-		<img
-			src={bhushan.src}
-			class="lg:absolute lg:-right-[10%] w-full lg:w-1/2 h-full lg:h-fit rounded-2xl z-20"
-		/>
-		<img
-			src={bhushan.src}
-			class="hidden lg:block absolute -top-1/3 -right-[15%] w-1/2 h-full lg:h-fit rounded-2xl z-10"
-		/>
-		<img
-			src={bhushan.src}
-			class="hidden lg:block absolute top-[55%] right-0 w-1/2 h-full lg:h-fit rounded-2xl z-30"
-		/>
-		<!-- The above image is for example, use some personal Photo -->
-
 	<section
 		class="min-h-[80vh] lg:h-[90vh] mb-10 w-full mx-auto rounded-2xl mt-[13vh] lg:mt-[15vh] p-10 relative flex flex-col justify-center items-center gap-10 overflow-hidden text-center"
+		data-aos="fade-up"
+		data-aos-once="true"
+		data-aos-duration="800"
 	>
 		<h1
 			class="font-sans2 font-black text-brandred text-6xl lg:text-8xl z-10"
-			data-aos="fade-up"
-			data-aos-once="true"
-			data-aos-duration="800"
-			data-value="Neurotechh"
 		>
 			Neurotechh
 		</h1>
 		<h3
 			class="pt-2 text-text my-3 text-lg sm:mt-5 lg:mb-0 sm:text-base lg:text-xl md:max-w-[34.5rem] text-justify [text-align-last:center]"
-			data-aos="fade-up"
-			data-aos-once="true"
-			data-aos-duration="800"
 		>
 			We are a community of student developers who build projects and
 			comeup with innovative solutions! Our aim is to have a community
@@ -94,9 +52,6 @@ const post = await client.fetch(
 		</h3>
 		<a
 			class="rounded-2xl text-md flex items-center justify-center px-8 py-4 font-semibold uppercase leading-none lg:h-[60px] text-background min-w-56 h-full max-h-20 w-fit bg-text sm:w-auto hover:bg-brandpink hover:text-text !transition-all duration-200"
-			data-aos="fade-up"
-			data-aos-once="true"
-			data-aos-duration="800"
 			href="https://forms.neurotechh.live/"
 		>
 			Wish to join us?
@@ -157,15 +112,18 @@ const post = await client.fetch(
 
 		<a
 			class="rounded-2xl text-md flex items-center justify-center px-8 py-4 font-semibold uppercase leading-none lg:h-[60px] text-text min-w-56 h-full max-h-20 w-fit bg-background sm:w-auto hover:bg-brandpink hover:text-text !transition-all duration-200"
+			href="/blogs"
 			data-aos="fade-up"
 			data-aos-once="true"
 			data-aos-duration="800"
-			href="/blogs"
 		>
 			View All Blogs!
 		</a>
 		<section
 			class="grid grid-rows-1 lg:grid-cols-3 place-items-center items-center justify-around gap-10 w-full"
+			data-aos="fade-up"
+			data-aos-once="true"
+			data-aos-duration="800"
 		>
 			{
 				post.slice(0, 3).map((post, index) => (
@@ -173,11 +131,6 @@ const post = await client.fetch(
 						<a
 							href={`/blogs/${post.slug.current}`}
 							class="m-auto flex flex-col items-center justify-center gap-5 bg-card text-text  rounded-xl place-items-center w-full h-fit  hover:!scale-[.97] !transition !ease-in-out !delay-0"
-							data-aos="fade-up"
-							data-aos-once="true"
-							data-aos-duration="800"
-							data-aos-delay={index * 100 + 500}
-							transition:name={post.slug.current}
 						>
 							<div class="flex flex-col justify-around">
 								<img
@@ -217,12 +170,12 @@ const post = await client.fetch(
 	<section
 		class="min-h-[50vh] lg:min-:h-[70vh] w-full mx-auto rounded-2xl p-10 py-24 text-background relative -mt-[5vh] flex flex-col justify-center items-center gap-10 overflow-hidden mb-[2vw]"
 		id="contact"
+		data-aos="fade-up"
+		data-aos-once="true"
+		data-aos-duration="800"
 	>
 		<h1
 			class="font-sans2 font-black text-brandred text-5xl lg:6xl lg:text-8xl z-10 mt-[5%]"
-			data-aos="fade-up"
-			data-aos-once="true"
-			data-aos-duration="800"
 		>
 			Find Us Here!
 		</h1>
@@ -246,33 +199,4 @@ const post = await client.fetch(
 			</a>
 		</ul>
 	</section>
-	<script>
-		const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-		let interval = null;
-
-		function animateText(event) {
-			let iteration = 0;
-			clearInterval(interval);
-			interval = setInterval(() => {
-				event.target.innerText = event.target.innerText
-					.split("")
-					.map((letter, index) => {
-						if (index < iteration) {
-							return event.target.dataset.value[index];
-						}
-
-						return letters[Math.floor(Math.random() * 26)];
-					})
-					.join("");
-
-				if (iteration >= event.target.dataset.value.length) {
-					clearInterval(interval);
-				}
-
-				iteration += 1 / 3;
-			}, 90);
-		}
-		const code = document.getElementById("codee");
-		animateText({ target: code });
-	</script>
 </Layout>
