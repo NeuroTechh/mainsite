@@ -7,9 +7,16 @@ import { formatDate } from "../../lib/date";
 import groq from "groq";
 let { slug } = Astro.params;
 
-const { authors, categories, body, mainImage, publishedAt, title,description } =
-	await client.fetch(
-		groq`*[_type == "post" && slug.current == $slug][0] {
+const {
+	authors,
+	categories,
+	body,
+	mainImage,
+	publishedAt,
+	title,
+	description,
+} = await client.fetch(
+	groq`*[_type == "post" && slug.current == $slug][0] {
   "authors": authors[]->{
     slug,name,image
   },
@@ -23,14 +30,14 @@ const { authors, categories, body, mainImage, publishedAt, title,description } =
   description,
   title
 }`,
-		{
-			slug,
-		}
-	);
+	{
+		slug,
+	}
+);
 import PortableText from "../../components/PortableText.astro";
 ---
 
-<Layout title={title} description={description} >
+<Layout title={title} description={description}>
 	<div
 		class="flex flex-col justify-center items-center md:min-h-[130vh] mt-[10vh] w-full max-w-7xl mx-auto gap-10 px-6 md:mt-24 md:mb-10"
 	>
@@ -64,7 +71,7 @@ import PortableText from "../../components/PortableText.astro";
 		{
 			categories.map((category) => (
 				<a
-					href={`/category/${category.slug.current}`}
+					href={`/blogs?category=${category.slug.current}`}
 					class="inline-block mr-3 rounded border border-brandred px-8 py-3 text-sm font-medium text-white transition hover:scale-[1.01] hover:shadow-xl focus:outline-none focus:ring w-fit text-center"
 				>
 					{category.title}
@@ -84,5 +91,6 @@ import PortableText from "../../components/PortableText.astro";
 		data-aos-easing="ease-in-out"
 	>
 		<PortableText portableText={body} />
+		<hr class="borde-t border-t-white" />
 	</article>
 </Layout>

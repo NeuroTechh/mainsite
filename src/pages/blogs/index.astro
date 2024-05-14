@@ -69,7 +69,7 @@ if (slug) {
 	description="Blogs on everythig Tech and Tutorial on how to build cool stuff with code"
 >
 	<section
-		class="flex flex-col justify-center md:items-center min-h-[130vh] w-full max-w-7xl mx-auto gap-10 px-3 mt-28 mb-10"
+		class="flex flex-col justify-center md:items-center md:min-h-[130vh] w-full max-w-7xl mx-auto gap-10 px-3 mt-28 mb-10"
 		data-aos="fade-up"
 		data-aos-once="true"
 		data-aos-duration="800"
@@ -142,7 +142,7 @@ if (slug) {
 				type="button"
 				class="inline-flex justify-center w-full rounded-md bg-card px-4 py-2 text-sm font-medium text-text border border-brandpink focus:outline-none"
 			>
-				All Categories
+				{slug === "" ? "All Categories" : unslugify(slug)}
 				<svg
 					class="-mr-1 ml-2 h-5 w-5"
 					xmlns="http://www.w3.org/2000/svg"
@@ -167,6 +167,19 @@ if (slug) {
 					aria-orientation="vertical"
 					aria-labelledby="options-menu"
 				>
+					{
+						slug != "" ? (
+							<a
+								href="/blogs/"
+								class="block px-4 py-2 text-sm hover:bg-[#2e2e2e] hover:text-brandred"
+							>
+								All Categories
+							</a>
+						) : (
+							""
+						)
+					}
+
 					{
 						category.map((cat) => (
 							<a
