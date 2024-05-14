@@ -120,7 +120,7 @@ const post = await client.fetch(
 			View All Blogs!
 		</a>
 		<section
-			class="grid grid-rows-1 lg:grid-cols-3 place-items-center items-center justify-around gap-10 w-full"
+			class="grid grid-rows-1 lg:grid-flow-col place-items-center items-center justify-around gap-10 w-full"
 			data-aos="fade-up"
 			data-aos-once="true"
 			data-aos-duration="800"
@@ -130,7 +130,7 @@ const post = await client.fetch(
 					<>
 						<a
 							href={`/blogs/${post.slug.current}`}
-							class="m-auto flex flex-col items-center justify-center gap-5 bg-card text-text  rounded-xl place-items-center w-full h-fit  hover:!scale-[.97] !transition !ease-in-out !delay-0"
+							class="m-auto flex flex-col items-center justify-center gap-5 bg-card text-text  rounded-xl place-items-center w-96 h-fit  hover:!scale-[.97] !transition !ease-in-out !delay-0"
 						>
 							<div class="flex flex-col justify-around">
 								<img
