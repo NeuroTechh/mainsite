@@ -8,7 +8,7 @@ import groq from "groq";
 import { urlFor } from "../lib/image";
 import { formatDate } from "../lib/date";
 const post = await client.fetch(
-  groq`*[_type == "post"] | order(_updatedAt desc)
+	groq`*[_type == "post"] | order(_updatedAt desc)
 	{
 		title,
 		slug,
@@ -28,36 +28,38 @@ const post = await client.fetch(
 ---
 
 <Layout
-  imgurl="https://neurotechh.live/seo.png"
-  title=" Neurotechh"
-  description="We are a community of student developers who build projects and comeup with innovative solutions! Our aim is to have a community where students can learn and grow together."
+	imgurl="https://neurotechh.live/seo.png"
+	title=" Neurotechh"
+	description="We are a community of student developers who build projects and comeup with innovative solutions! Our aim is to have a community where students can learn and grow together."
 >
-  <section
-    class="min-h-[80vh] lg:h-[90vh] mb-10 w-full mx-auto rounded-2xl mt-[13vh] lg:mt-[15vh] p-10 relative flex flex-col justify-center items-center gap-10 overflow-hidden text-center"
-    data-aos="fade-up"
-    data-aos-once="true"
-    data-aos-duration="800"
-  >
-    <h1 class="font-sans2 font-black text-brandred text-6xl lg:text-8xl z-10">
-      Neurotechh
-    </h1>
-    <h3
-      class="pt-2 text-text my-3 text-lg sm:mt-5 lg:mb-0 sm:text-base lg:text-xl md:max-w-[34.5rem] text-justify [text-align-last:center]"
-    >
-      We are a community of student developers who build projects and comeup
-      with innovative solutions! Our aim is to have a community where students
-      can learn and grow together.
-    </h3>
-    <a
-      class="rounded-2xl text-md flex items-center justify-center px-8 py-4 font-semibold uppercase leading-none lg:h-[60px] text-background min-w-56 h-full max-h-20 w-fit bg-text sm:w-auto hover:bg-brandpink hover:text-text !transition-all duration-200"
-      href="https://forms.neurotechh.live/"
-    >
-      Wish to join us?
-    </a>
-    <a href="#work">
-      <i data-lucide="chevron-down" class="size-6 animate-bounce"></i>
-    </a>
-    <!-- <img
+	<section
+		class="min-h-[80vh] lg:h-[90vh] mb-10 w-full mx-auto rounded-2xl mt-[13vh] lg:mt-[15vh] p-10 relative flex flex-col justify-center items-center gap-10 overflow-hidden text-center"
+		data-aos="fade-up"
+		data-aos-once="true"
+		data-aos-duration="800"
+	>
+		<h1
+			class="font-sans2 font-black text-brandred text-6xl lg:text-8xl z-10"
+		>
+			Neurotechh
+		</h1>
+		<h3
+			class="pt-2 text-text my-3 text-lg sm:mt-5 lg:mb-0 sm:text-base lg:text-xl md:max-w-[34.5rem] text-justify [text-align-last:center]"
+		>
+			We are a community of student developers who build projects and
+			comeup with innovative solutions! Our aim is to have a community
+			where students can learn and grow together.
+		</h3>
+		<a
+			class="rounded-2xl text-md flex items-center justify-center px-8 py-4 font-semibold uppercase leading-none lg:h-[60px] text-background min-w-56 h-full max-h-20 w-fit bg-text sm:w-auto hover:bg-brandpink hover:text-text !transition-all duration-200"
+			href="https://forms.neurotechh.live/"
+		>
+			Wish to join us?
+		</a>
+		<a href="#work">
+			<i data-lucide="chevron-down" class="size-6 animate-bounce"></i>
+		</a>
+		<!-- <img
 			src={bhushan.src}
 			class="lg:absolute lg:-right-[10%] w-full lg:w-1/2 h-full lg:h-fit rounded-2xl z-20"
 			data-aos="fade-up"
@@ -81,118 +83,123 @@ const post = await client.fetch(
 			data-aos-duration="800"
 			data-aos-delay="400"
 		/> -->
-  </section>
-  <section
-    class="min-h-[50vh] lg:min-h-[90vh] w-full bg-white/90 mx-auto rounded-2xl p-10 py-24 text-background relative -mt-[5vh] flex flex-col justify-center items-center gap-10 overflow-hidden mb-[2vw]"
-    id="work"
-  >
-    <img
-      src={Grid.src}
-      class="absolute inset-0 w-full h-fit object-fill opacity-20 z-0"
-    />
-    <h1
-      class="font-sans2 font-black text-brandred text-5xl lg:6xl lg:text-8xl z-10 text-center"
-      data-aos="fade-up"
-      data-aos-once="true"
-      data-aos-duration="800"
-    >
-      Our Blogs!
-    </h1>
-    <h3
-      class="pt-2 font-medium text-[#444] my-3 text-lg sm:mt-5 lg:mb-0 sm:text-base lg:text-xl md:max-w-[34.5rem] text-justify [text-align-last:center]"
-      data-aos="fade-up"
-      data-aos-once="true"
-      data-aos-duration="800"
-    >
-      We write about every cool stuff we build and how we build it. Along with
-      that we also write about the latest tech !
-    </h3>
+	</section>
+	<section
+		class="min-h-[50vh] lg:min-h-[90vh] w-full bg-white/90 mx-auto rounded-2xl p-10 py-24 text-background relative -mt-[5vh] flex flex-col justify-center items-center gap-10 overflow-hidden mb-[2vw]"
+		id="work"
+	>
+		<img
+			src={Grid.src}
+			class="absolute inset-0 w-full h-fit object-fill opacity-20 z-0"
+		/>
+		<h1
+			class="font-sans2 font-black text-brandred text-5xl lg:6xl lg:text-8xl z-10 text-center"
+			data-aos="fade-up"
+			data-aos-once="true"
+			data-aos-duration="800"
+		>
+			Our Blogs!
+		</h1>
+		<h3
+			class="pt-2 font-medium text-[#444] my-3 text-lg sm:mt-5 lg:mb-0 sm:text-base lg:text-xl md:max-w-[34.5rem] text-justify [text-align-last:center]"
+			data-aos="fade-up"
+			data-aos-once="true"
+			data-aos-duration="800"
+		>
+			We write about every cool stuff we build and how we build it. Along
+			with that we also write about the latest tech !
+		</h3>
 
-    <a
-      class="rounded-2xl text-md flex items-center justify-center px-8 py-4 font-semibold uppercase leading-none lg:h-[60px] text-text min-w-56 h-full max-h-20 w-fit bg-background sm:w-auto hover:bg-brandpink hover:text-text !transition-all duration-200"
-      href="/blogs"
-      data-aos="fade-up"
-      data-aos-once="true"
-      data-aos-duration="800"
-    >
-      View All Blogs!
-    </a>
-    <section
-      class="grid grid-rows-1 lg:grid-flow-col place-items-center items-center justify-around gap-10 w-full"
-      data-aos="fade-up"
-      data-aos-once="true"
-      data-aos-duration="800"
-    >
-      {
-        post.slice(0, 3).map((post, index) => (
-          <>
-            <a
-              href={`/blogs/${post.slug.current}`}
-              class="m-auto flex flex-col items-center justify-center gap-5 bg-card text-text  rounded-xl place-items-center md:w-96 h-fit  hover:!scale-[.97] !transition !ease-in-out !delay-0"
-            >
-              <div class="flex flex-col justify-around">
-                <img
-                  src={urlFor(post.mainImage).url()}
-                  alt="Neurotechh Blogs"
-                  class="rounded-2xl w-full h-full lg:h-52 object-cover"
-                />
-                <div class="space-y-6 py-10 px-6">
-                  <h1 class="text-xl lg:text-3xl font-medium 2xl:space-y-16 font-sans2 ">
-                    {post.title}
-                  </h1>
-                  <span class="space-x-5 flex flex-row items-center">
-                    <img
-                      src={urlFor(post.authors[0].image).url()}
-                      alt="avatar"
-                      class="relative inline-block object-cover object-center w-12 h-12 rounded-full"
-                    />
-                    <span>
-                      <span class="text-lg font-bold text-brand">
-                        {post.authors[0].name}
-                      </span>
-                      <span class="text-md text-text/80 block">
-                        {formatDate(post.publishedAt)}
-                      </span>
-                    </span>
-                  </span>
-                </div>
-              </div>
-            </a>
-          </>
-        ))
-      }
-    </section>
-  </section>
-  <section
-    class="min-h-[50vh] lg:min-:h-[70vh] w-full mx-auto rounded-2xl p-10 py-24 text-background relative -mt-[5vh] flex flex-col justify-center items-center gap-10 overflow-hidden mb-[2vw]"
-    id="contact"
-    data-aos="fade-up"
-    data-aos-once="true"
-    data-aos-duration="800"
-  >
-    <h1
-      class="font-sans2 font-black text-brandred text-5xl lg:6xl lg:text-8xl z-10 mt-[5%]"
-    >
-      Find Us Here!
-    </h1>
-    <ul
-      class="flex flex-row gap-5 lg:gap-10 text-text font-semibold *:tracking-wider"
-      data-aos="fade-up"
-      data-aos-once="true"
-      data-aos-duration="800"
-    >
-      <a
-        href="https://github.com/NeuroTechh/"
-        class="p-2 transition hover:bg-brandpink rounded-2xl"
-      >
-        <i data-lucide="github" class="size-12"></i></a
-      >
-      <a
-        href="https://www.instagram.com/Neurotechh"
-        class="p-2 transition hover:bg-brandpink rounded-2xl"
-      >
-        <i data-lucide="instagram" class="size-12"></i>
-      </a>
-    </ul>
-  </section>
+		<a
+			class="rounded-2xl text-md flex items-center justify-center px-8 py-4 font-semibold uppercase leading-none lg:h-[60px] text-text min-w-56 h-full max-h-20 w-fit bg-background sm:w-auto hover:bg-brandpink hover:text-text !transition-all duration-200"
+			href="/blogs"
+			data-aos="fade-up"
+			data-aos-once="true"
+			data-aos-duration="800"
+		>
+			View All Blogs!
+		</a>
+		<section
+			class="grid grid-rows-1 lg:grid-flow-col place-items-center items-center justify-around gap-10 w-full"
+			data-aos="fade-up"
+			data-aos-once="true"
+			data-aos-duration="800"
+		>
+			{
+				post.slice(0, 3).map((post, index) => (
+					<>
+						<a
+							href={`/blogs/${post.slug.current}`}
+							class="m-auto flex flex-col items-center justify-center gap-5 bg-card text-text  rounded-xl place-items-center md:w-96 h-fit  hover:!scale-[.97] !transition !ease-in-out !delay-0"
+						>
+							<div class="flex flex-col justify-around">
+								<img
+									src={urlFor(post.mainImage)
+										.width(1200)
+										.height(600)
+										.url()}
+									alt="Neurotechh Blogs"
+									class="rounded-lg w-full h-full lg:h-52 object-cover"
+								/>
+								<div class="space-y-6 py-10 px-6">
+									<h1 class="text-xl lg:text-3xl font-medium 2xl:space-y-16 font-sans2 ">
+										{post.title}
+									</h1>
+									<span class="space-x-5 flex flex-row items-center">
+										<img
+											src={urlFor(
+												post.authors[0].image
+											).url()}
+											alt="avatar"
+											class="relative inline-block object-cover object-center w-12 h-12 rounded-full"
+										/>
+										<span>
+											<span class="text-lg font-bold text-brand">
+												{post.authors[0].name}
+											</span>
+											<span class="text-md text-text/80 block">
+												{formatDate(post.publishedAt)}
+											</span>
+										</span>
+									</span>
+								</div>
+							</div>
+						</a>
+					</>
+				))
+			}
+		</section>
+	</section>
+	<section
+		class="min-h-[50vh] lg:min-:h-[70vh] w-full mx-auto rounded-2xl p-10 py-24 text-background relative -mt-[5vh] flex flex-col justify-center items-center gap-10 overflow-hidden mb-[2vw]"
+		id="contact"
+		data-aos="fade-up"
+		data-aos-once="true"
+		data-aos-duration="800"
+	>
+		<h1
+			class="font-sans2 font-black text-brandred text-5xl lg:6xl lg:text-8xl z-10 mt-[5%]"
+		>
+			Find Us Here!
+		</h1>
+		<ul
+			class="flex flex-row gap-5 lg:gap-10 text-text font-semibold *:tracking-wider"
+			data-aos="fade-up"
+			data-aos-once="true"
+			data-aos-duration="800"
+		>
+			<a
+				href="https://github.com/NeuroTechh/"
+				class="p-2 transition hover:bg-brandpink rounded-2xl"
+			>
+				<i data-lucide="github" class="size-12"></i></a
+			>
+			<a
+				href="https://www.instagram.com/Neurotechh"
+				class="p-2 transition hover:bg-brandpink rounded-2xl"
+			>
+				<i data-lucide="instagram" class="size-12"></i>
+			</a>
+		</ul>
+	</section>
 </Layout>
