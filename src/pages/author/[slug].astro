@@ -8,21 +8,21 @@ import { formatDate } from "../../lib/date";
 let { slug } = Astro.params;
 
 const author = await client.fetch(
-  groq`*[_type == "author" && slug.current == $slug][0] {
+	groq`*[_type == "author" && slug.current == $slug][0] {
     name,
     image,
     bio,
   }`,
-  {
-    slug,
-  }
+	{
+		slug,
+	}
 );
 if (author == null) {
-  return Astro.redirect("/blogs");
+	return Astro.redirect("/blogs");
 }
 const { name, image, bio } = author;
 const post = await client.fetch(
-  groq`*[_type=="post" && $slug in authors[]->slug.current]{
+	groq`*[_type=="post" && $slug in authors[]->slug.current]{
 		title,
 		slug,
 		mainImage,
@@ -36,84 +36,87 @@ const post = await client.fetch(
 		},	
 		description
 	}`,
-  {
-    slug,
-  }
+	{
+		slug,
+	}
 );
 ---
 
 <Layout
-  title={name}
-  description={bio}
+	title={name + "| Neurotechh"}
+	description={bio}
+	imgurl="https://neurotechh.live/seo.png"
 >
-  <div
-    class="flex flex-col items-center justify-center min-h-screen py-12"
-    data-aos="fade-up"
-    data-aos-once="true"
-    data-aos-duration="800"
-  >
-    <h1 class="text-5xl md:text-7xl font-bold my-8 font-sans2 text-center">
-      {name}
-    </h1>
-    <img
-      src={urlFor(image).url()}
-      alt={name}
-      class="w-48 h-48 rounded-full object-cover mb-8"
-    />
-    <article
-      class="max-w-3xl mx-8 prose prose-strong:text-brandred prose-red prose-lg text-justify text-text"
-    >
-      <PortableText portableText={bio} />
-    </article>
-    <h2 class="text-brandred font-bold font-sans2 text-3xl text-left mt-10">
-      Recent blogs
-    </h2>
-    <section
-      class="grid grid-rows-1 md:grid-cols-3 place-items-center items-center justify-around m-10 gap-10"
-    >
-      {
-        post.map((post, index) => (
-          <>
-            <a
-              href={`/blogs/${post.slug.current}`}
-              class="m-auto flex flex-col items-center justify-center gap-5 bg-card/70 bg-grain bg-[length:200px_200px] rounded-xl place-items-center w-full h-fit border-2 border-border/30 hover:border-brandred/50  hover:scale-[.98] transition duration-300 ease-in-out"
-              data-aos="fade-up"
-              data-aos-once="true"
-              data-aos-duration="800"
-              data-aos-delay={index * 100 + 500}
-              transition:name={post.slug.current}
-            >
-              <div class="flex flex-col justify-around">
-                <img
-                  src={urlFor(post.mainImage).url()}
-                  alt="Neurotechh Blogs"
-                  class="rounded-2xl w-full h-full md:h-52 object-cover"
-                />
-                <div class="space-y-6 py-10 px-6">
-                  <h1 class="text-xl md:text-2xl lg:text-3xl font-bold 2xl:space-y-16 font-sans2 ">
-                    {post.title}
-                  </h1>
-                  <span class="space-x-5 flex flex-row items-center">
-                    <img
-                      src={urlFor(post.authors[0].image).url()}
-                      alt="avatar"
-                      class="relative inline-block object-cover object-center w-12 h-12 rounded-full"
-                    />
-                    <span>
-                      <span class="text-lg font-bold text-brand">
-                        {post.authors[0].name}
-                      </span>
-                      <span class="text-md text-text/80 block">
-                        {formatDate(post.publishedAt)}
-                      </span>
-                    </span>
-                  </span>
-                </div>
-              </div>
-            </a>
-          </>
-        ))
-      }
-    </section>
-  </div>
+	<div
+		class="flex flex-col items-center justify-center min-h-screen py-12"
+		data-aos="fade-up"
+		data-aos-once="true"
+		data-aos-duration="800"
+	>
+		<h1 class="text-5xl md:text-7xl font-bold my-8 font-sans2 text-center">
+			{name}
+		</h1>
+		<img
+			src={urlFor(image).url()}
+			alt={name}
+			class="w-48 h-48 rounded-full object-cover mb-8"
+		/>
+		<article
+			class="max-w-3xl mx-8 prose prose-strong:text-brandred prose-red prose-lg text-justify text-text"
+		>
+			<PortableText portableText={bio} />
+		</article>
+		<h2 class="text-brandred font-bold font-sans2 text-3xl text-left mt-10">
+			Recent blogs
+		</h2>
+		<section
+			class="grid grid-rows-1 md:grid-cols-3 place-items-center items-center justify-around m-10 gap-10"
+		>
+			{
+				post.map((post, index) => (
+					<>
+						<a
+							href={`/blogs/${post.slug.current}`}
+							class="m-auto flex flex-col items-center justify-center gap-5 bg-card/70 bg-grain bg-[length:200px_200px] rounded-xl place-items-center w-full h-fit border-2 border-border/30 hover:border-brandred/50  hover:scale-[.98] transition duration-300 ease-in-out"
+							data-aos="fade-up"
+							data-aos-once="true"
+							data-aos-duration="800"
+							data-aos-delay={index * 100 + 500}
+							transition:name={post.slug.current}
+						>
+							<div class="flex flex-col justify-around">
+								<img
+									src={urlFor(post.mainImage).url()}
+									alt="Neurotechh Blogs"
+									class="rounded-2xl w-full h-full md:h-52 object-cover"
+								/>
+								<div class="space-y-6 py-10 px-6">
+									<h1 class="text-xl md:text-2xl lg:text-3xl font-bold 2xl:space-y-16 font-sans2 ">
+										{post.title}
+									</h1>
+									<span class="space-x-5 flex flex-row items-center">
+										<img
+											src={urlFor(
+												post.authors[0].image
+											).url()}
+											alt="avatar"
+											class="relative inline-block object-cover object-center w-12 h-12 rounded-full"
+										/>
+										<span>
+											<span class="text-lg font-bold text-brand">
+												{post.authors[0].name}
+											</span>
+											<span class="text-md text-text/80 block">
+												{formatDate(post.publishedAt)}
+											</span>
+										</span>
+									</span>
+								</div>
+							</div>
+						</a>
+					</>
+				))
+			}
+		</section>
+	</div>
 </Layout>
