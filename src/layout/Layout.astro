@@ -11,7 +11,7 @@ import { ViewTransitions } from "astro:transitions";
 	<head>
 		<meta name="title" content={title} />
 		<meta name="description" content={description} />
-		
+
 		<!-- Open Graph / Facebook -->
 		<meta property="og:type" content="website" />
 		<meta property="og:url" content="https://neurotechh.live" />
@@ -65,7 +65,7 @@ import { ViewTransitions } from "astro:transitions";
 			AOS.init();
 		</script>
 	</head>
-	<body class=" bg-background">
+	<body class="bg-background selection:bg-text selection:text-background">
 		<Navbar />
 		<slot />
 	</body>
