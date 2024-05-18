@@ -1,5 +1,4 @@
 ---
-
 import Layout from "../layout/Layout.astro";
 import Grid from "../assets/svg/grid.svg";
 import bhushan from "../assets/image.png";
@@ -8,7 +7,7 @@ import groq from "groq";
 import { urlFor } from "../lib/image";
 import { formatDate } from "../lib/date";
 const post = await client.fetch(
-	groq`*[_type == "post"] | order(_updatedAt desc)
+	groq`*[_type == "post"] | order(publishedAt desc)
 	{
 		title,
 		slug,
@@ -132,9 +131,9 @@ const post = await client.fetch(
 					<>
 						<a
 							href={`/blogs/${post.slug.current}`}
-							class="m-auto flex flex-col items-center justify-center gap-5 bg-card text-text  rounded-xl place-items-center md:w-96 h-full  hover:!scale-[.97] !transition !ease-in-out !delay-0"
+							class="m-auto flex flex-col items-center justify-between gap-5 bg-card text-text  rounded-xl place-items-center md:w-96 h-full  hover:!scale-[.97] !transition !ease-in-out !delay-0"
 						>
-							<div class="flex flex-col justify-around">
+							<div class="flex flex-col justify-between">
 								<img
 									src={urlFor(post.mainImage)
 										.width(1200)
@@ -143,8 +142,8 @@ const post = await client.fetch(
 									alt="Neurotechh Blogs"
 									class="rounded-t-xl w-full h-full lg:h-52 object-cover border-b border-text/20"
 								/>
-								<div class="space-y-6 py-10 px-6 flex flex-col justify-around">
-									<h1 class="text-xl lg:text-3xl font-medium 2xl:space-y-16 font-sans2 ">
+								<div class="space-y-6 py-10 px-6 flex flex-col justify-between h-full">
+									<h1 class="text-xl lg:text-3xl font-medium 2xl:space-y-16 font-sans2 text-turnicate">
 										{post.title}
 									</h1>
 									<span class="space-x-5 flex flex-row items-center">

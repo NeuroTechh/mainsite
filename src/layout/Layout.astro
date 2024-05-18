@@ -72,6 +72,10 @@ import { ViewTransitions } from "astro:transitions";
 	<script src="https://unpkg.com/lucide@latest" is:inline></script>
 	<script is:inline>
 		lucide.createIcons();
+		document.documentElement.style.setProperty(
+			"--nav-height",
+			`${document.getElementById("navbarr").offsetHeight}px`
+		);
 	</script>
 	<script>
 		window.addEventListener("scroll", function () {

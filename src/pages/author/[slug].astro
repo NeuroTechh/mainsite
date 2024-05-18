@@ -48,13 +48,14 @@ let output =
 	" | Neurotechh";
 output = output.replace(/\n/g, ""); // Remove all line breaks
 ---
+
 <Layout
 	title={String(name + " | Neurotechh")}
 	description={output}
 	imgurl="https://neurotechh.live/seo.png"
 >
 	<div
-		class="flex flex-col items-center justify-center min-h-screen py-12"
+		class="flex flex-col justify-center md:items-center md:min-h-[130vh] w-full max-w-7xl mx-auto gap-10 px-3 mt-20 mb-10"
 		data-aos="fade-up"
 		data-aos-once="true"
 		data-aos-duration="800"
@@ -76,31 +77,26 @@ output = output.replace(/\n/g, ""); // Remove all line breaks
 			Recent blogs
 		</h2>
 		<section
-			class="grid grid-rows-1 md:grid-cols-3 place-items-center items-center justify-around m-10 gap-10"
+			class="grid grid-rows-1 md:grid-cols-3 place-items-center items-center justify-around w-full md:gap-10"
 		>
 			{
 				post.map((post, index) => (
 					<>
 						<a
 							href={`/blogs/${post.slug.current}`}
-							class="m-auto flex flex-col items-center justify-center gap-5 bg-card/70 bg-grain bg-[length:200px_200px] rounded-xl place-items-center w-full h-fit border-2 border-border/30 hover:border-brandred/50  hover:scale-[.98] transition duration-300 ease-in-out"
-							data-aos="fade-up"
-							data-aos-once="true"
-							data-aos-duration="800"
-							data-aos-delay={index * 100 + 500}
-							transition:name={post.slug.current}
+							class="m-auto flex flex-col items-center justify-center gap-5 hover:bg-card/70  rounded-xl place-items-center w-full h-fit  transition duration-300 ease-in-out p-3"
 						>
-							<div class="flex flex-col justify-around">
+							<div class="flex flex-col justify-around h-96 ">
 								<img
 									src={urlFor(post.mainImage)
-										.width(1200)
-										.height(600)
+										.width(1920)
+										.height(1080)
 										.url()}
 									alt="Neurotechh Blogs"
-									class="rounded-2xl w-full h-full md:h-52 object-cover"
+									class="rounded-2xl w-full  object-cover scale-100 overflow-hidden"
 								/>
-								<div class="space-y-6 py-10 px-6">
-									<h1 class="text-xl md:text-2xl lg:text-3xl font-bold 2xl:space-y-16 font-sans2 ">
+								<div class="space-y-6 py-10 px-4">
+									<h1 class="text-xl md:text-2xl lg:text-3xl font-medium 2xl:space-y-16 font-sans2 ">
 										{post.title}
 									</h1>
 									<span class="space-x-5 flex flex-row items-center">

@@ -1,9 +1,9 @@
 ---
-import Navbar from "../../components/navbar.astro";
 import Layout from "../../layout/Layout.astro";
 import client from "../../lib/sanity";
 import { urlFor } from "../../lib/image";
 import { formatDate } from "../../lib/date";
+import ProgressBar from "../../components/progressbar";
 import groq from "groq";
 let { slug } = Astro.params;
 
@@ -34,6 +34,41 @@ const {
 		slug,
 	}
 );
+
+let next = await client.fetch(
+	groq`*[_type == "post" && publishedAt > $publishedAt] | order(publishedAt asc) [0] {
+  title,
+    publishedAt,
+
+  slug,
+    "authors": authors[]->{
+    slug,name,image
+	},
+}`,
+	{
+		publishedAt,
+	}
+);
+let prev = await client.fetch(
+	groq`*[_type == "post" && publishedAt < $publishedAt] | order(publishedAt desc) [0] {
+  title,
+    publishedAt,
+  slug,
+    "authors": authors[]->{
+    slug,name,image
+  },
+}`,
+	{
+		publishedAt,
+	}
+);
+if (!prev) {
+	prev = "";
+}
+if (!next) {
+	next = "";
+}
+
 import PortableText from "../../components/PortableText.astro";
 ---
 
@@ -42,8 +77,9 @@ import PortableText from "../../components/PortableText.astro";
 	description={description}
 	imgurl={urlFor(mainImage).width(1200).height(600).url()}
 >
+	<ProgressBar client:load />
 	<div
-		class="flex flex-col justify-center items-center md:min-h-[130vh] mt-[10vh] w-full max-w-7xl mx-auto gap-10 px-6 md:mt-24 md:mb-10"
+		class="flex flex-col justify-center items-center md:min-h-[130vh] mt-[12vh] w-full max-w-7xl mx-auto gap-10 px-6 md:mt-24 md:mb-10"
 	>
 		<h1
 			class="text-4xl md:text-6xl font-black 2xl:space-y-16 font-sans2 text-center"
@@ -97,4 +133,33 @@ import PortableText from "../../components/PortableText.astro";
 		<PortableText portableText={body} />
 		<hr class="borde-t border-t-white" />
 	</article>
+	<div
+		class="flex flex-col md:flex-row justify-center items-center h-full w-full max-w-4xl mx-auto gap-10 px-6 mb-10"
+	>
+		{
+			prev && (
+				<a
+					href={`/blogs/${prev.slug.current}`}
+					class="border-2 border-text/20 w-full py-12 px-6 hover:bg-card/70 rounded-2xl flex flex-col transition-all duration-300 ease-in-out mt-6 p-3 gap-5"
+				>
+					<p class="text-sm text-text/50">Previous Post</p>
+
+					<h1 class="text-2xl font-bold text-text">{prev.title}</h1>
+				</a>
+			)
+		}
+
+		{
+			next && (
+				<a
+					href={`/blogs/${next.slug.current}`}
+					class="border-2 border-text/20 w-full py-12 px-6 hover:bg-card/70 rounded-2xl flex flex-col transition-all duration-300 ease-in-out mt-6 p-3 gap-5"
+				>
+					<p class="text-sm text-text/50">Next Post</p>
+
+					<h1 class="text-2xl font-bold text-text">{next.title}</h1>
+				</a>
+			)
+		}
+	</div>
 </Layout>
