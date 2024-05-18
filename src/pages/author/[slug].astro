@@ -40,11 +40,18 @@ const post = await client.fetch(
 		slug,
 	}
 );
+let output =
+	"Hi, I am " +
+	name.trim() +
+	"! " +
+	bio[0].children[0].text.trim() +
+	" | Neurotechh";
+output = output.replace(/\n/g, ""); // Remove all line breaks
 ---
 
 <Layout
 	title={String(name + " | Neurotechh")}
-	description={bio}
+	description={output}
 	imgurl="https://neurotechh.live/seo.png"
 >
 	<div

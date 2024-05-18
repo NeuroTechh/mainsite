@@ -38,6 +38,8 @@ const post = await client.fetch(
 		data-aos-once="true"
 		data-aos-duration="800"
 	>
+		<div class="hidden md:block circle-left"></div>
+		<div class="hidden md:block circle-right"></div>
 		<h1
 			class="font-sans2 font-black text-brandred text-6xl lg:text-8xl z-10"
 		>
@@ -130,7 +132,7 @@ const post = await client.fetch(
 					<>
 						<a
 							href={`/blogs/${post.slug.current}`}
-							class="m-auto flex flex-col items-center justify-center gap-5 bg-card text-text  rounded-xl place-items-center md:w-96 h-fit  hover:!scale-[.97] !transition !ease-in-out !delay-0"
+							class="m-auto flex flex-col items-center justify-center gap-5 bg-card text-text  rounded-xl place-items-center md:w-96 h-full  hover:!scale-[.97] !transition !ease-in-out !delay-0"
 						>
 							<div class="flex flex-col justify-around">
 								<img
@@ -139,9 +141,9 @@ const post = await client.fetch(
 										.height(600)
 										.url()}
 									alt="Neurotechh Blogs"
-									class="rounded-lg w-full h-full lg:h-52 object-cover"
+									class="rounded-t-xl w-full h-full lg:h-52 object-cover border-b border-text/20"
 								/>
-								<div class="space-y-6 py-10 px-6">
+								<div class="space-y-6 py-10 px-6 flex flex-col justify-around">
 									<h1 class="text-xl lg:text-3xl font-medium 2xl:space-y-16 font-sans2 ">
 										{post.title}
 									</h1>
