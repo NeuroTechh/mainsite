@@ -88,7 +88,7 @@ import { ViewTransitions } from "astro:transitions";
 			} else {
 				scrollTop -= 3200;
 			}
-			const line = document.querySelector("#line");
+			const line = document.querySelector("#line") as HTMLElement;
 			if (sponsor.getBoundingClientRect().bottom < 300) {
 				line.style.height = scrollTop + "px";
 			}
