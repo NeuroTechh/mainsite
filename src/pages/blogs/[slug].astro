@@ -8,16 +8,16 @@ import groq from "groq";
 let { slug } = Astro.params;
 
 const {
-  authors,
-  categories,
-  body,
-  mainImage,
-  publishedAt,
-  title,
-  description,
-  estimatedReadingTime,
+	authors,
+	categories,
+	body,
+	mainImage,
+	publishedAt,
+	title,
+	description,
+	estimatedReadingTime,
 } = await client.fetch(
-  groq`*[_type == "post" && slug.current == $slug][0] {
+	groq`*[_type == "post" && slug.current == $slug][0] {
   "authors": authors[]->{
     slug,name,image
   },
@@ -32,13 +32,13 @@ const {
   title,
   "estimatedReadingTime": round(length(pt::text(body)) / 5 / 180 )
 }`,
-  {
-    slug,
-  }
+	{
+		slug,
+	}
 );
 
 let next = await client.fetch(
-  groq`*[_type == "post" && publishedAt > $publishedAt] | order(publishedAt asc) [0] {
+	groq`*[_type == "post" && publishedAt > $publishedAt] | order(publishedAt asc) [0] {
   title,
     publishedAt,
 
@@ -47,12 +47,12 @@ let next = await client.fetch(
     slug,name,image
 	},
 }`,
-  {
-    publishedAt,
-  }
+	{
+		publishedAt,
+	}
 );
 let prev = await client.fetch(
-  groq`*[_type == "post" && publishedAt < $publishedAt] | order(publishedAt desc) [0] {
+	groq`*[_type == "post" && publishedAt < $publishedAt] | order(publishedAt desc) [0] {
   title,
     publishedAt,
   slug,
@@ -60,112 +60,146 @@ let prev = await client.fetch(
     slug,name,image
   },
 }`,
-  {
-    publishedAt,
-  }
+	{
+		publishedAt,
+	}
 );
 if (!prev) {
-  prev = "";
+	prev = "";
 }
 if (!next) {
-  next = "";
+	next = "";
 }
 
 import PortableText from "../../components/PortableText.astro";
-
-console.log(estimatedReadingTime);
 ---
 
 <Layout
-  title={title}
-  description={description}
-  imgurl={urlFor(mainImage).width(1200).height(600).url()}
+	title={title}
+	description={description}
+	imgurl={urlFor(mainImage).width(1200).height(600).url()}
 >
-  <ProgressBar client:load />
-  <div
-    class="flex flex-col justify-center items-center md:min-h-[130vh] mt-[12vh] w-full max-w-7xl mx-auto gap-10 px-6 md:mt-24 md:mb-10"
-  >
-    <h1
-      class="text-4xl md:text-6xl font-black 2xl:space-y-16 font-sans2 text-center"
-    >
-      {title}
-    </h1>
-    {
-      authors.map((author) => (
-        <>
-          <a
-            href={`/author/${author.slug.current}`}
-            class="text-text no-underline space-x-5 flex flex-row items-center "
-          >
-            <img
-              src={urlFor(authors[0].image).url()}
-              alt="avatar"
-              class="relative inline-block h-[58px] w-[58px] !rounded-full object-cover object-center"
-            />
-            <span class="text-md no-underline text-nowrap font-bold text-brand">
-              {authors[0].name}
-              <p class=" pt-1 font-light">
-                Published on {formatDate(publishedAt)}
-              </p>
-              <p class=" pt-1">{estimatedReadingTime} min read</p>
-            </span>
-          </a>
-        </>
-      ))
-    }
-    {
-      categories.map((category) => (
-        <a
-          href={`/blogs?category=${category.slug.current}`}
-          class="inline-block mr-3 rounded border border-brandred px-8 py-3 text-sm font-medium text-white transition hover:scale-[1.01] hover:shadow-xl focus:outline-none focus:ring w-fit text-center"
-        >
-          {category.title}
-        </a>
-      ))
-    }
-    <img
-      src={urlFor(mainImage).url()}
-      class="border-2 border-border rounded-2xl w-full h-[300px] md:h-[500px] object-cover"
-    />
-  </div>
+	<ProgressBar client:load />
+	<div
+		class="flex flex-col justify-center items-center md:min-h-[130vh] mt-[12vh] w-full max-w-7xl mx-auto gap-10 px-6 md:mt-24 md:mb-10"
+	>
+		<h1
+			class="text-4xl md:text-6xl font-black 2xl:space-y-16 font-sans2 text-center"
+		>
+			{title}
+		</h1>
+		{
+			authors.map((author) => (
+				<>
+					<a
+						href={`/author/${author.slug.current}`}
+						class="text-text no-underline space-x-5 flex flex-row items-center "
+					>
+						<img
+							src={urlFor(authors[0].image).url()}
+							alt="avatar"
+							class="relative inline-block h-[58px] w-[58px] !rounded-full object-cover object-center"
+						/>
+						<span class="text-md no-underline text-nowrap font-bold text-brand">
+							{authors[0].name}
+							<p class=" pt-1 font-light">
+								Published on {formatDate(publishedAt)}
+							</p>
+							<p class=" pt-1">{estimatedReadingTime} min read</p>
+						</span>
+					</a>
+				</>
+			))
+		}
+		{
+			categories.map((category) => (
+				<a
+					href={`/blogs?category=${category.slug.current}`}
+					class="inline-block mr-3 rounded border border-brandred px-8 py-3 text-sm font-medium text-white transition hover:scale-[1.01] hover:shadow-xl focus:outline-none focus:ring w-fit text-center"
+				>
+					{category.title}
+				</a>
+			))
+		}
+		<img
+			src={urlFor(mainImage).url()}
+			class="border-2 border-border rounded-2xl w-full h-[300px] md:h-[500px] object-cover"
+		/>
+	</div>
 
-  <article
-    class="my-auto prose md:prose-lg prose-pink prose-invert prose-img:rounded-xl prose-img:shadow-2xl prose-img:min-h-full md:prose-img:w-[60%] prose-img:mx-auto prose-figure:mx-auto prose-pre:text-left prose-headings:flex prose-headings:items-center prose-headings:gap-2 w-full flex flex-col justify-center mx-auto pt-[10vh] md:pt-0 pb-[5vh] px-6 md:px-0 prose-headings:font-sans2 prose-headings:text-center prose-headings:mx-auto prose-headings:text-brandred text-text prose-blockquote:text-text/50 prose-blockquote:border-brandred/60 no-underline prose-img:my-3 prose-headings:mt-10 prose-pre:border-2 prose-pre:border-border -mt-10 !break-words"
-    data-aos="fade"
-    data-aos-duration="300"
-    data-aos-easing="ease-in-out"
-    data-aos-once="true"
-  >
-    <PortableText portableText={body} />
-    <hr class="borde-t border-t-white" />
-  </article>
-  <div
-    class="flex flex-col md:flex-row justify-center items-center h-full w-full max-w-4xl mx-auto gap-10 px-6 mb-10"
-  >
-    {
-      prev && (
-        <a
-          href={`/blogs/${prev.slug.current}`}
-          class="border-2 border-text/20 w-full py-12 px-6 hover:bg-card/70 rounded-2xl flex flex-col transition-all duration-300 ease-in-out mt-6 p-3 gap-5"
-        >
-          <p class="text-sm text-text/50">Previous Post</p>
-
-          <h1 class="text-2xl font-bold text-text">{prev.title}</h1>
-        </a>
-      )
-    }
-
-    {
-      next && (
-        <a
-          href={`/blogs/${next.slug.current}`}
-          class="border-2 border-text/20 w-full py-12 px-6 hover:bg-card/70 rounded-2xl flex flex-col transition-all duration-300 ease-in-out mt-6 p-3 gap-5"
-        >
-          <p class="text-sm text-text/50">Next Post</p>
-
-          <h1 class="text-2xl font-bold text-text">{next.title}</h1>
-        </a>
-      )
-    }
-  </div>
+	<article
+		class="my-auto prose md:prose-lg prose-pink prose-invert prose-img:rounded-xl prose-img:shadow-2xl prose-img:min-h-full md:prose-img:w-[60%] prose-img:mx-auto prose-figure:mx-auto prose-pre:text-left prose-headings:flex prose-headings:items-center prose-headings:gap-2 w-full flex flex-col justify-center mx-auto pt-[10vh] md:pt-0 pb-[5vh] px-6 md:px-0 prose-headings:font-sans2 prose-headings:text-center prose-headings:mx-auto prose-headings:text-brandred text-text prose-blockquote:text-text/50 prose-blockquote:border-brandred/60 no-underline prose-img:my-3 prose-headings:mt-10 prose-pre:border-2 prose-pre:border-border -mt-10 !break-words"
+		data-aos="fade"
+		data-aos-duration="300"
+		data-aos-easing="ease-in-out"
+		data-aos-once="true"
+	>
+		<PortableText portableText={body} />
+		<hr class="borde-t border-t-white" />
+	</article>
+	<div
+		class="flex flex-col md:flex-row justify-center items-center h-full w-full max-w-3xl mx-auto gap-10 px-6 mb-10"
+	>
+		{
+			next && (
+				<a
+					href={`/blogs/${next.slug.current}`}
+					class="border-2 border-text/20 w-full h-full py-12 px-6 hover:bg-card/70 rounded-2xl flex flex-col transition-all duration-300 ease-in-out mt-6 p-3 gap-5"
+				>
+					<span class="inline-flex align-middle ">
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							width="24"
+							height="24"
+							viewBox="0 0 24 24"
+							fill="none"
+							stroke="currentColor"
+							stroke-width="2"
+							stroke-linecap="round"
+							stroke-linejoin="round"
+							class="lucide lucide-chevron-left"
+						>
+							<path d="m15 18-6-6 6-6" />
+						</svg>
+						<p class="text-sm text-text/50">Next Post</p>
+					</span>
+					<h1 class="text-2xl font-bold text-text text-turnicate">
+						{next.title}
+					</h1>
+				</a>
+			)
+		}
+		{
+			prev && (
+				<a
+					href={`/blogs/${prev.slug.current}`}
+					class="border-2 border-text/20 w-full h-full py-12 px-6 hover:bg-card/70 rounded-2xl flex flex-col transition-all duration-300 ease-in-out mt-6 p-3 gap-5"
+				>
+					<span class="inline-flex align-middle ">
+						{" "}
+						<p class="text-md text-text/50 inline-block">
+							Previous Post
+						</p>
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							width="24"
+							height="24"
+							viewBox="0 0 24 24"
+							fill="none"
+							stroke="currentColor"
+							stroke-width="2"
+							stroke-linecap="round"
+							stroke-linejoin="round"
+							class="lucide lucide-chevron-right inline-block text-text/50"
+						>
+							<path d="m9 18 6-6-6-6" />
+						</svg>
+					</span>
+					<h1 class="text-2xl font-bold text-text text-turnicate">
+						{prev.title}
+					</h1>
+				</a>
+			)
+		}
+	</div>
 </Layout>
