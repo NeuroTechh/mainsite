@@ -13,8 +13,13 @@ export default defineConfig({
   site: "https://neurotechh.live/",
   integrations: [tailwind(), sitemap(), react()],
   output: "server",
-  adapter: vercel(),
+  adapter: vercel({
+    isr: true,
+    webAnalytics: {
+      enabled: true,
+    },
+  }),
   prefetch: {
-    prefetchAll: true
-  }
+    prefetchAll: true,
+  },
 });
