@@ -14,7 +14,6 @@ export default defineConfig({
   integrations: [tailwind(), sitemap(), react()],
   output: "server",
   adapter: vercel({
-    isr: true,
     webAnalytics: {
       enabled: true,
     },
