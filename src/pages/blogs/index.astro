@@ -198,11 +198,11 @@ if (slug) {
 			</div>
 		</div>
 		<div
-			class="hidden md:grid grid-flow-col gap-3 md:gap-5 pt-5 w-fit max-w-3xl mx-auto"
+			class="hidden md:grid grid-flow-col gap-3 md:gap-5 pt-5 w-fit mx-auto"
 		>
 			<a
 				href={`/blogs/`}
-				class={`inline-block mr-3 rounded-lg py-3 px-6 text-sm text-white transition hover:scale-[1.01] hover:shadow-xl focus:outline-none focus:ring font-bold text-center ${slug == "" ? "bg-brandpink" : "border"}`}
+				class={`inline-block mr-3 w-full rounded-lg py-3 px-6 text-sm text-white transition hover:scale-[1.01] hover:shadow-xl focus:outline-none focus:ring font-bold text-center ${slug == "" ? "bg-brandpink" : "border"}`}
 			>
 				All
 			</a>
@@ -210,7 +210,7 @@ if (slug) {
 				category.map((cat) => (
 					<a
 						href={`?category=${cat.slug.current}`}
-						class={`inline-block mr-3 rounded-lg border hover:border-brandred py-3 px-6 text-sm text-white transition hover:scale-[1.01] hover:shadow-xl focus:outline-none focus:ring font-bold text-center ${slug === cat.slug.current ? "bg-brandpink border-0" : "border"}`}
+						class={`inline-block w-full mr-3 rounded-lg border hover:border-brandred py-3 px-6 text-sm text-white transition hover:scale-[1.01] hover:shadow-xl focus:outline-none focus:ring font-bold text-center ${slug === cat.slug.current ? "bg-brandpink border-0" : "border"}`}
 					>
 						{cat.title}
 					</a>
@@ -237,7 +237,7 @@ if (slug) {
 									class="rounded-2xl w-full  object-cover scale-100 overflow-hidden"
 								/>
 								<div class="space-y-6 py-10 px-4">
-									<h1 class="text-xl md:text-2xl lg:text-3xl font-medium 2xl:space-y-16 font-sans2 ">
+									<h1 class="text-xl md:text-2xl lg:text-3xl font-medium 2xl:space-y-16 font-sans2 text-turnicate">
 										{post.title}
 									</h1>
 									<span class="space-x-5 flex flex-row items-center">
