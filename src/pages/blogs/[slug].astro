@@ -111,6 +111,12 @@ import PortableText from "../../components/PortableText.astro";
 				</>
 			))
 		}
+		<div
+			class="py-1"
+			role="menu"
+			aria-orientation="vertical"
+			aria-labelledby="options-menu"
+		>
 		{
 			categories.map((category) => (
 				<a
@@ -121,6 +127,7 @@ import PortableText from "../../components/PortableText.astro";
 				</a>
 			))
 		}
+		</div>
 		<img
 			src={urlFor(mainImage).url()}
 			class="border-2 border-border rounded-2xl w-full h-[300px] md:h-[500px] object-cover"
