@@ -3,9 +3,7 @@ import { urlFor } from "../lib/image";
 const { asset, alt } = Astro.props.node;
 const url = urlFor(asset).url();
 const webpUrl = urlFor(asset).format("webp").url();
+import { Image } from "astro:assets";
 ---
 
-<picture>
-	<source srcset={webpUrl} type="image/webp" />
-	<img class="responsive__img" src={url} alt={alt} />
-</picture>
+<Image src={url} alt="" width={1920} height={1080} />

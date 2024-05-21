@@ -85,6 +85,8 @@ import PortableText from "../../components/PortableText.astro";
 	>
 		<h1
 			class="text-4xl md:text-6xl font-black 2xl:space-y-16 font-sans2 text-center"
+			id="titleee"
+			data-value={title}
 		>
 			{title}
 		</h1>
@@ -117,20 +119,22 @@ import PortableText from "../../components/PortableText.astro";
 			aria-orientation="vertical"
 			aria-labelledby="options-menu"
 		>
-		{
-			categories.map((category) => (
-				<a
-					href={`/blogs?category=${category.slug.current}`}
-					class="inline-block mr-3 rounded border border-brandred px-8 py-3 text-sm font-medium text-white transition hover:scale-[1.01] hover:shadow-xl focus:outline-none focus:ring w-fit text-center"
-				>
-					{category.title}
-				</a>
-			))
-		}
+			{
+				categories.map((category) => (
+					<a
+						href={`/blogs?category=${category.slug.current}`}
+						class="inline-block mr-3 rounded border border-brandred px-8 py-3 text-sm font-medium text-white transition hover:scale-[1.01] hover:shadow-xl focus:outline-none focus:ring w-fit text-center"
+					>
+						{category.title}
+					</a>
+				))
+			}
 		</div>
 		<img
 			src={urlFor(mainImage).url()}
 			class="border-2 border-border rounded-2xl w-full h-[300px] md:h-[500px] object-cover"
+			data-value={urlFor(mainImage).url()}
+			id="mainImage"
 		/>
 	</div>
 
@@ -144,6 +148,35 @@ import PortableText from "../../components/PortableText.astro";
 		<PortableText portableText={body} />
 		<hr class="borde-t border-t-white" />
 	</article>
+
+	<button
+		class="flex flex-col md:flex-row justify-center items-center h-full w-full max-w-3xl mx-auto gap-10 px-6 mb-10"
+		id="buttonnnn"
+	>
+		<svg
+			xmlns="http://www.w3.org/2000/svg"
+			width="24"
+			height="24"
+			viewBox="0 0 24 24"
+			fill="none"
+			stroke="currentColor"
+			stroke-width="2"
+			stroke-linecap="round"
+			stroke-linejoin="round"
+			class="lucide lucide-share-2"
+			><circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"
+			></circle><circle cx="18" cy="19" r="3"></circle><line
+				x1="8.59"
+				x2="15.42"
+				y1="13.51"
+				y2="17.49"></line><line
+				x1="15.41"
+				x2="8.59"
+				y1="6.51"
+				y2="10.49"></line></svg
+		>
+	</button>
+	<p class="result"></p>
 	<div
 		class="flex flex-col md:flex-row justify-center items-center h-full w-full max-w-3xl mx-auto gap-10 px-6 mb-10"
 	>
@@ -209,4 +242,40 @@ import PortableText from "../../components/PortableText.astro";
 			)
 		}
 	</div>
+	<script>
+		const title = document
+			.getElementById("titleee")
+			.getAttribute("data-value");
+		console.log("title", title);
+
+		let shareData = {
+			title: title,
+			text: title,
+			url: document.location.href,
+		};
+
+		const btn = document.getElementById("buttonnnn");
+		const resultPara = document.querySelector(".result");
+
+		btn.addEventListener("click", () => {
+			if (navigator.share) {
+				navigator
+					.share(shareData)
+					.then(
+						() =>
+							(resultPara.textContent = "MDN shared successfully")
+					)
+					.catch((e) => (resultPara.textContent = "Error: " + e));
+			} else {
+				navigator.clipboard
+					.writeText(document.location.href)
+					.then(
+						() =>
+							(resultPara.textContent =
+								"Link copied to clipboard")
+					)
+					.catch((e) => (resultPara.textContent = "Error: " + e));
+			}
+		});
+	</script>
 </Layout>

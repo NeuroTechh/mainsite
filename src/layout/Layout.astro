@@ -30,7 +30,7 @@ import { ViewTransitions } from "astro:transitions";
 		<link
 			rel="icon"
 			type="image/svg+xml"
-			href="https://neurotechh.live/favicon.svg"
+			href="https://neurotechh.live/icon.svg"
 		/>
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
@@ -86,7 +86,7 @@ import { ViewTransitions } from "astro:transitions";
 			if (window.innerWidth > 800) {
 				scrollTop -= 1800;
 			} else {
-				scrollTop -= 3200;
+				scrollTop -= 3200
 			}
 			const line = document.querySelector("#line") as HTMLElement;
 			if (sponsor.getBoundingClientRect().bottom < 300) {
