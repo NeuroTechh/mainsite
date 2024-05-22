@@ -114,7 +114,7 @@ import PortableText from "../../components/PortableText.astro";
 			))
 		}
 		<div
-			class="py-1"
+			class="py-1 flex flex-col md:flex-row justify-center items-center gap-5"
 			role="menu"
 			aria-orientation="vertical"
 			aria-labelledby="options-menu"
@@ -132,7 +132,7 @@ import PortableText from "../../components/PortableText.astro";
 		</div>
 		<img
 			src={urlFor(mainImage).url()}
-			class="border-2 border-border rounded-2xl w-full h-[300px] md:h-[500px] object-cover"
+			class="border-2 border-border rounded-2xl w-full h-fit max-h-[300px] md:h-[500px] object-cover"
 			data-value={urlFor(mainImage).url()}
 			id="mainImage"
 		/>
