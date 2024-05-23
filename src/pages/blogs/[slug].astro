@@ -77,7 +77,7 @@ import PortableText from "../../components/PortableText.astro";
 <Layout
 	title={title}
 	description={description}
-	imgurl={urlFor(mainImage).width(1200).height(600).url()}
+	imgurl={urlFor(mainImage).width(1200).height(600).quality(70).url()}
 >
 	<ProgressBar client:load />
 	<div
@@ -132,14 +132,14 @@ import PortableText from "../../components/PortableText.astro";
 		</div>
 		<img
 			src={urlFor(mainImage).url()}
-			class="border-2 border-border rounded-2xl w-full h-fit max-h-[300px] md:h-[500px] object-cover"
+			class="border-2 border-border rounded-2xl w-full h-full max-h-[300px] md:max-h-[500px] object-cover"
 			data-value={urlFor(mainImage).url()}
 			id="mainImage"
 		/>
 	</div>
 
 	<article
-		class="my-auto prose md:prose-lg prose-pink prose-invert prose-img:rounded-xl prose-img:min-h-full md:prose-img:w-[60%] prose-img:mx-auto prose-figure:mx-auto prose-pre:text-left prose-headings:flex prose-headings:items-center prose-headings:gap-2 w-full flex flex-col justify-center mx-auto pt-[10vh] md:pt-0 pb-[5vh] px-6 md:px-0 prose-headings:font-sans2 prose-headings:text-center prose-headings:mx-auto prose-headings:text-brandred text-text prose-blockquote:text-text/50 prose-blockquote:border-brandred/60 no-underline prose-img:my-3 prose-headings:mt-10 prose-pre:border-2 prose-pre:border-border -mt-10 !break-words"
+		class="my-auto prose md:prose-lg prose-pink prose-invert prose-img:rounded-lg prose-img:p-1 prose-img:min-h-full md:prose-img:w-[60%] prose-img:mx-auto prose-figure:mx-auto prose-pre:text-left prose-headings:flex prose-headings:items-center prose-headings:gap-2 w-full flex flex-col justify-center mx-auto pt-[10vh] md:pt-0 pb-[5vh] px-6 md:px-0 prose-headings:font-sans2 prose-headings:text-center prose-headings:mx-auto prose-headings:text-brandred text-text prose-blockquote:text-text/50 prose-blockquote:border-brandred/60 no-underline prose-img:my-3 prose-headings:mt-10 prose-pre:border-2 prose-pre:border-border -mt-10 !break-words"
 		data-aos="fade"
 		data-aos-duration="300"
 		data-aos-easing="ease-in-out"
