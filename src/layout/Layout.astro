@@ -3,7 +3,7 @@ const { imgurl, title, description } = Astro.props;
 import Navbar from "../components/navbar.astro";
 import "aos/dist/aos.css";
 import "./global.css";
-import { ViewTransitions } from "astro:transitions";
+import PostHog from "../components/posthog.astro";
 ---
 
 <!doctype html>
@@ -64,45 +64,46 @@ import { ViewTransitions } from "astro:transitions";
 			import AOS from "aos";
 			AOS.init();
 		</script>
+		<PostHog />
 	</head>
 	<body class="bg-background selection:bg-text selection:text-background">
 		<Navbar />
 		<slot />
-	</body>
-	<script src="https://unpkg.com/lucide@latest" is:inline></script>
-	<script is:inline>
-		lucide.createIcons();
-		document.documentElement.style.setProperty(
-			"--nav-height",
-			`${document.getElementById("navbarr").offsetHeight}px`
-		);
-	</script>
-	<script>
-		window.addEventListener("scroll", function () {
-			const speaker = document.querySelector("#round3");
-			const sponsor = document.querySelector("#Speakers");
-			let scrollTop = window.scrollY;
-			// console.log(speaker.getBoundingClientRect().bottom);
-			if (window.innerWidth > 800) {
-				scrollTop -= 1800;
-			} else {
-				scrollTop -= 3200
-			}
-			const line = document.querySelector("#line") as HTMLElement;
-			if (sponsor.getBoundingClientRect().bottom < 300) {
-				line.style.height = scrollTop + "px";
-			}
-		});
-		document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-			anchor.addEventListener("click", function (e) {
-				e.preventDefault();
-
-				document
-					.querySelector(this.getAttribute("href"))
-					.scrollIntoView({
-						behavior: "smooth",
-					});
+		<script src="https://unpkg.com/lucide@latest" is:inline></script>
+		<script is:inline>
+			lucide.createIcons();
+			document.documentElement.style.setProperty(
+				"--nav-height",
+				`${document.getElementById("navbarr").offsetHeight}px`
+			);
+		</script>
+		<script>
+			window.addEventListener("scroll", function () {
+				const speaker = document.querySelector("#round3");
+				const sponsor = document.querySelector("#Speakers");
+				let scrollTop = window.scrollY;
+				// console.log(speaker.getBoundingClientRect().bottom);
+				if (window.innerWidth > 800) {
+					scrollTop -= 1800;
+				} else {
+					scrollTop -= 3200;
+				}
+				const line = document.querySelector("#line") as HTMLElement;
+				if (sponsor.getBoundingClientRect().bottom < 300) {
+					line.style.height = scrollTop + "px";
+				}
 			});
-		});
-	</script>
+			document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+				anchor.addEventListener("click", function (e) {
+					e.preventDefault();
+
+					document
+						.querySelector(this.getAttribute("href"))
+						.scrollIntoView({
+							behavior: "smooth",
+						});
+				});
+			});
+		</script>
+	</body>
 </html>
