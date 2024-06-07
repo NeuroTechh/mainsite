@@ -76,7 +76,7 @@ if (slug) {
 		data-aos-once="true"
 	>
 		<h1
-			class="text-6xl md:text-8xl font-black 2xl:space-y-16 font-sans2 text-brandred text-center"
+			class="text-6xl md:text-8xl 2xl:space-y-16 text-brandred text-center font-incognito font-semibold"
 		>
 			Our Blogs
 		</h1>
@@ -140,11 +140,13 @@ if (slug) {
 		<div class="md:my-6 border-t-2 border-gray-300 rounded-full w-full">
 		</div>
 
-		<div class="relative inline-block text-left w-fit ml-2 md:hidden">
+		<div
+			class="relative inline-block text-left w-fit ml-2 md:hidden font-incognito font-semibold"
+		>
 			<button
 				id="options-menu"
 				type="button"
-				class="inline-flex justify-center w-full rounded-md bg-card px-4 py-2 text-sm font-medium text-text border border-brandpink focus:outline-none"
+				class="inline-flex justify-center w-full rounded-md bg-card px-4 py-2 text-sm text-text border border-brandpink focus:outline-none"
 			>
 				{slug === "" ? "All Categories" : unslugify(slug)}
 				<svg
@@ -163,7 +165,7 @@ if (slug) {
 
 			<div
 				id="dropdown"
-				class="origin-center absolute mt-2 w-56 rounded-md shadow-lg bg-card text-text ring-1 ring-black ring-opacity-5 z-50 hidden"
+				class="origin-center absolute mt-2 w-56 rounded-md shadow-lg bg-card text-text ring-1 ring-black ring-opacity-5 z-50 hidden font-incognito font-semibold"
 			>
 				<div
 					class="py-1"
@@ -198,11 +200,11 @@ if (slug) {
 			</div>
 		</div>
 		<div
-			class="hidden md:grid grid-flow-col gap-3 md:gap-5 pt-5 w-fit mx-auto"
+			class="hidden md:grid grid-flow-col gap-3 md:gap-5 pt-5 w-fit mx-auto font-incognito font-semibold"
 		>
 			<a
 				href={`/blogs/`}
-				class={`inline-block mr-3 w-full rounded-lg py-3 px-6 text-sm text-white transition hover:scale-[1.01] hover:shadow-xl focus:outline-none focus:ring font-bold text-center ${slug == "" ? "bg-brandpink" : "border"}`}
+				class={`inline-block mr-3 w-full rounded-lg py-3 px-6 text-sm text-white transition hover:scale-[1.01] hover:shadow-xl focus:outline-none focus:ring  text-center ${slug == "" ? "bg-brandpink" : "border"}`}
 			>
 				All
 			</a>
@@ -210,7 +212,7 @@ if (slug) {
 				category.map((cat) => (
 					<a
 						href={`?category=${cat.slug.current}`}
-						class={`inline-block w-full mr-3 rounded-lg border hover:border-brandred py-3 px-6 text-sm text-white transition hover:scale-[1.01] hover:shadow-xl focus:outline-none focus:ring font-bold text-center ${slug === cat.slug.current ? "bg-brandpink border-0" : "border"}`}
+						class={`inline-block w-full mr-3 rounded-lg border hover:border-brandred py-3 px-6 text-sm text-white transition  hover:shadow-xl focus:outline-none focus:ring font-incognito font-semibold text-center ${slug === cat.slug.current ? "bg-brandpink border-0" : "border"}`}
 					>
 						{cat.title}
 					</a>
@@ -225,7 +227,7 @@ if (slug) {
 					<>
 						<a
 							href={`/blogs/${post.slug.current}`}
-							class="m-auto flex flex-col items-center justify-center gap-5 hover:bg-card/70  rounded-xl place-items-center w-full h-fit  transition duration-300 ease-in-out p-3"
+							class="m-auto flex flex-col items-center justify-center gap-5 hover:bg-zinc-900/70 backdrop-blur-2xl  rounded-xl place-items-center w-full h-fit  transition duration-300 ease-in-out p-3"
 						>
 							<div class="flex flex-col justify-around h-96 ">
 								<img

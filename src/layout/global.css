@@ -5,16 +5,40 @@
 .topp {
   top: calc(var(--nav-height));
 }
-body {
-  font-family: "Space Grotesk", sans-serif;
-  font-optical-sizing: auto;
-  color: #ffeadb;
-  background-position: 0 0;
-  background-size: 200px 200px;
-  font-size: 1rem;
-  font-weight: 300;
-  line-height: 1.5;
-  scroll-behavior: smooth;
+@font-face {
+  font-family: "Incognito";
+  src: url("/incognito_bold.woff2") format("woff2");
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Incognito";
+  src: url("/incognito_condensed.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Incognito";
+  src: url("/incognito_medium.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Incognito";
+  src: url("/incognito_regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --incognito: "Incognito", sans-serif;
 }
 
 .circle-left,
@@ -49,6 +73,17 @@ body {
   -webkit-line-clamp: 2; /* number of lines to show */
   line-clamp: 2;
   -webkit-box-orient: vertical;
+}
+.path {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: draw 5s linear forwards;
+}
+
+@keyframes draw {
+  to {
+    stroke-dashoffset: 0;
+  }
 }
 
 @media screen {

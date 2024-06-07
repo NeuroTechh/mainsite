@@ -32,7 +32,7 @@ const post = await client.fetch(
 	description="We are a community of student developers who build projects and comeup with innovative solutions! Our aim is to have a community where students can learn and grow together."
 >
 	<section
-		class="min-h-[80vh] lg:h-[90vh] mb-10 w-full mx-auto rounded-2xl mt-[13vh] lg:mt-[15vh] p-10 relative flex flex-col justify-center items-center gap-10 overflow-hidden text-center"
+		class="min-h-[80vh] lg:h-[90vh] mb-10 w-full mx-auto rounded-2xl mt-[13vh] lg:mt-[15vh] p-10 relative flex flex-col justify-center items-center gap-10 overflow-hidden text-center bg-transparent"
 		data-aos="fade-up"
 		data-aos-once="true"
 		data-aos-duration="800"
@@ -40,19 +40,19 @@ const post = await client.fetch(
 		<div class="hidden md:block circle-left"></div>
 		<div class="hidden md:block circle-right"></div>
 		<h1
-			class="font-sans2 font-black text-brandred text-6xl lg:text-8xl z-10"
+			class="text-brandred text-6xl lg:text-8xl z-10 font-incognito font-semibold"
 		>
 			Neurotechh
 		</h1>
 		<h3
-			class="pt-2 text-text my-3 text-lg sm:mt-5 lg:mb-0 sm:text-base lg:text-xl md:max-w-[34.5rem] text-justify [text-align-last:center]"
+			class="pt-2 text-white my-3 text-lg sm:mt-5 lg:mb-0 sm:text-base lg:text-xl md:max-w-[34.5rem] text-justify [text-align-last:center] font-medium"
 		>
 			We are a community of student developers who build projects and
 			comeup with innovative solutions! Our aim is to have a community
 			where students can learn and grow together.
 		</h3>
 		<a
-			class="rounded-2xl text-md flex items-center justify-center px-8 py-4 font-semibold uppercase leading-none lg:h-[60px] text-background min-w-56 h-full max-h-20 w-fit bg-text sm:w-auto hover:bg-brandpink hover:text-text !transition-all duration-200"
+			class="rounded-2xl text-md flex items-center justify-center px-8 py-4 uppercase leading-none lg:h-[60px] text-background min-w-56 h-full max-h-20 w-fit bg-text/80 backdrop-blur-md sm:w-auto hover:bg-brandpink hover:text-white !transition-all duration-200 font-incognito font-semibold"
 			href="https://forms.neurotechh.live/"
 		>
 			Wish to join us?
@@ -86,15 +86,15 @@ const post = await client.fetch(
 		/> -->
 	</section>
 	<section
-		class="min-h-[50vh] lg:min-h-[90vh] w-full bg-text/90 mx-auto rounded-2xl p-10 py-24 text-background relative -mt-[5vh] flex flex-col justify-center items-center gap-10 overflow-hidden mb-[2vw]"
+		class="min-h-[50vh] lg:min-h-[90vh] w-full bg-transparent border-t border-b border-text/20 mx-auto p-10 py-24 text-white relative -mt-[5vh] flex flex-col justify-center items-center gap-10 overflow-hidden mb-[2vw]"
 		id="work"
 	>
 		<img
 			src={Grid.src}
-			class="absolute inset-0 w-full h-fit object-fill opacity-20 z-0"
+			class="absolute inset-0 w-full h-full md:h-fit object-cover opacity-20 z-0 text-white stroke-text bg-transparent backdrop-blur-2xl"
 		/>
 		<h1
-			class="font-sans2 font-black text-brandred text-5xl lg:6xl lg:text-8xl z-10 text-center"
+			class="font-incognito font-semibold text-brandred text-5xl lg:6xl lg:text-8xl z-10 text-center"
 			data-aos="fade-up"
 			data-aos-once="true"
 			data-aos-duration="800"
@@ -102,7 +102,7 @@ const post = await client.fetch(
 			Our Blogs!
 		</h1>
 		<h3
-			class="pt-2 font-medium text-[#444] my-3 text-lg sm:mt-5 lg:mb-0 sm:text-base lg:text-xl md:max-w-[34.5rem] text-justify [text-align-last:center]"
+			class="pt-2 font-medium text-white/70 my-3 text-lg sm:mt-5 lg:mb-0 sm:text-base lg:text-xl md:max-w-[34.5rem] text-justify [text-align-last:center]"
 			data-aos="fade-up"
 			data-aos-once="true"
 			data-aos-duration="800"
@@ -112,7 +112,7 @@ const post = await client.fetch(
 		</h3>
 
 		<a
-			class="rounded-2xl text-md flex items-center justify-center px-8 py-4 font-semibold uppercase leading-none lg:h-[60px] text-text min-w-56 h-full max-h-20 w-fit bg-background sm:w-auto hover:bg-brandpink hover:text-text !transition-all duration-200"
+			class="rounded-2xl text-md flex items-center justify-center px-8 py-4 uppercase leading-none lg:h-[60px] text-background min-w-56 h-full max-h-20 w-fit bg-text/80 backdrop-blur-2xl sm:w-auto hover:bg-brandpink hover:text-white !transition-all duration-200 font-incognito font-semibold"
 			href="/blogs"
 			data-aos="fade-up"
 			data-aos-once="true"
@@ -131,19 +131,19 @@ const post = await client.fetch(
 					<>
 						<a
 							href={`/blogs/${post.slug.current}`}
-							class="m-auto flex flex-col items-center justify-between gap-5 bg-card text-text  rounded-xl place-items-center md:w-96 h-full  hover:!scale-[.97] !transition !ease-in-out !delay-0"
+							class="m-auto flex flex-col items-center justify-center gap-5 hover:bg-zinc-900/70 backdrop-blur-md hover:backdrop-blur-2xl  rounded-xl place-items-center w-full h-fit bg-transparent  transition duration-300 ease-in-out p-3 border border-text/20"
 						>
-							<div class="flex flex-col justify-between">
+							<div class="flex flex-col justify-around h-96 ">
 								<img
 									src={urlFor(post.mainImage)
-										.width(1200)
-										.height(600)
+										.width(1920)
+										.height(1080)
 										.url()}
 									alt="Neurotechh Blogs"
-									class="rounded-t-xl w-full h-full lg:h-52 object-cover border-b border-text/20"
+									class="rounded-2xl w-full  object-cover scale-100 overflow-hidden"
 								/>
-								<div class="space-y-6 py-10 px-6 flex flex-col justify-between h-full">
-									<h1 class="text-xl lg:text-3xl font-medium 2xl:space-y-16 font-sans2 text-turnicate">
+								<div class="space-y-6 py-10 px-4">
+									<h1 class="text-xl md:text-2xl lg:text-3xl font-medium 2xl:space-y-16 font-sans2 text-turnicate">
 										{post.title}
 									</h1>
 									<span class="space-x-5 flex flex-row items-center">
@@ -172,34 +172,50 @@ const post = await client.fetch(
 		</section>
 	</section>
 	<section
-		class="min-h-[50vh] lg:min-:h-[70vh] w-full mx-auto rounded-2xl p-10 py-24 text-background relative -mt-[5vh] flex flex-col justify-center items-center gap-10 overflow-hidden mb-[2vw]"
+		class="py-24 h-fit w-full mx-auto rounded-2xl p-10 text-background relative -mt-[5vh] flex flex-col justify-center items-center gap-10 overflow-hidden mb-[2vw] font-incognito font-semibold"
 		id="contact"
 		data-aos="fade-up"
 		data-aos-once="true"
 		data-aos-duration="800"
 	>
-		<h1
-			class="font-sans2 font-black text-brandred text-5xl lg:6xl lg:text-8xl z-10 mt-[5%]"
-		>
+		<h1 class="text-brandred text-5xl lg:6xl lg:text-8xl z-10 mt-[5%]">
 			Find Us Here!
 		</h1>
 		<ul
-			class="flex flex-row gap-5 lg:gap-10 text-text font-semibold *:tracking-wider"
+			class="flex flex-row gap-5 lg:gap-10 text-white font-semibold *:tracking-wider"
 			data-aos="fade-up"
 			data-aos-once="true"
 			data-aos-duration="800"
 		>
 			<a
 				href="https://github.com/NeuroTechh/"
-				class="p-2 transition hover:bg-brandpink rounded-2xl"
+				class="p-2 flex items-end gap-2 *:hover:text-brandpink"
 			>
-				<i data-lucide="github" class="size-12"></i></a
-			>
+				<i
+					data-lucide="github"
+					class="size-6 md:size-10 transition text-white/80 stroke-1"
+				></i>
+				Github
+			</a>
 			<a
 				href="https://www.instagram.com/Neurotechh"
-				class="p-2 transition hover:bg-brandpink rounded-2xl"
+				class="p-2 transition flex items-end gap-2 *:hover:text-brandpink"
 			>
-				<i data-lucide="instagram" class="size-12"></i>
+				<i
+					data-lucide="instagram"
+					class="size-6 md:size-10 transition text-white/80 stroke-1"
+				></i>
+				Instagram
+			</a>
+			<a
+				href="https://www.linkedin.com/company/neurotechh"
+				class="p-2 transition flex items-end gap-2 peer/ln *:hover:text-brandpink"
+			>
+				<i
+					data-lucide="linkedin"
+					class="size-6 md:size-10 transition text-white/80 stroke-1"
+				></i>
+				Linkedin
 			</a>
 		</ul>
 	</section>

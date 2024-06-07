@@ -9,7 +9,7 @@ export default function MyForm() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const formData = new FormData(e.target);
-    setIsLoading(false); // Start the loading animation
+    setIsLoading(true); // Start the loading animation
     const response = await fetch("/api/news", {
       method: "POST",
       body: formData,
@@ -29,13 +29,26 @@ export default function MyForm() {
   return (
     <div className="mx-auto mb-10 flex h-full w-full max-w-3xl flex-col items-center justify-center gap-10 px-6 md:flex-row">
       {formStatus === "success" || formStatus === "error" ? (
-        <div className="text-turnicate mt-6 flex h-full w-full flex-col gap-5 rounded-2xl border-2 border-text/20 p-3 px-6 py-12 text-2xl font-bold text-text transition-all duration-300 ease-in-out hover:bg-card/70">
-          {message}
+        <div className="text-turnicate mt-6 flex h-full w-full flex-row items-center justify-between gap-10 rounded-2xl border-2 border-text/20 p-6 text-2xl font-bold text-text transition-all duration-300 ease-in-out hover:bg-card/70">
+          <p className="pr-1/2 m-0 inline-block">{message}</p>
+          {formStatus === "error" && (
+            <button
+              type="button"
+              onClick={() => {
+                setIsLoading(true);
+                setFormStatus(null); // Reset form status on retry
+                setMessage(null); // Reset message on retry
+              }}
+              className="animate-fade-up ml-[100px] inline-block w-fit rounded-lg bg-text px-8 py-3 text-lg font-semibold text-black transition delay-100 hover:opacity-80 focus:outline-2 focus:ring-4 focus:ring-gray-300"
+            >
+              Retry
+            </button>
+          )}
         </div>
       ) : (
-        <div className="text-turnicate mt-6 flex h-full w-full flex-col gap-5 rounded-2xl border-2 border-brandpink/20 p-3 px-6 py-12 text-2xl font-bold text-text transition-all duration-300 ease-in-out">
-          <h1 class="text-turnicate p-3 text-2xl font-bold text-text ">
-            Maybe even subscribe to our newsletter 👀
+        <div className="text-turnicate mt-6 flex h-full w-full flex-col gap-5 rounded-2xl border-2 border-brandpink/20 p-6 text-2xl font-bold text-text transition-all duration-300 ease-in-out">
+          <h1 className="text-turnicate pl-1 md:p-3  font-incognito text-2xl font-semibold text-text md:text-3xl">
+            Maybe even subscribe to our newsletter
           </h1>
 
           <form
@@ -48,7 +61,7 @@ export default function MyForm() {
               type="email"
               name="email"
               id="email"
-              className="mb-5 w-full max-w-lg border-0 border-b-2 border-[#f9f4da] bg-transparent p-3 font-sans text-xl outline-none transition-all duration-300 ease-in-out hover:border-text/70 focus:border-brandpink/70 focus:ring-0 md:flex-grow lg:text-2xl"
+              className="lg:text-md mb-5 w-full max-w-lg border-0 border-b-2 border-[#f9f4da] bg-transparent p-3 font-incognito text-xl font-semibold outline-none transition-all duration-300 ease-in-out hover:border-text/70 focus:border-brandpink/70 focus:ring-0 md:flex-grow"
               placeholder="john@example.com"
               ref={emailRef}
               required
@@ -59,7 +72,7 @@ export default function MyForm() {
             {isLoading ? (
               <button
                 type="submit"
-                className="animate-fade-up relative mb-2 mr-2 w-fit rounded-lg bg-text px-8 py-3 text-lg font-semibold text-black transition delay-100 hover:opacity-80 focus:outline-2 focus:ring-4 focus:ring-gray-300"
+                className="animate-fade-up w-fit rounded-lg bg-text px-4 md:px-8 py-3 text-lg font-semibold text-black transition delay-100 hover:opacity-80 focus:outline-2 focus:ring-4 focus:ring-gray-300"
               >
                 Submit
               </button>
@@ -67,12 +80,13 @@ export default function MyForm() {
               <button
                 disabled
                 type="submit"
-                className="animate-fade-up relative mb-2 mr-2 w-fit rounded-lg bg-brandpink/70 px-6 py-3 text-lg font-semibold text-black transition delay-100 hover:opacity-80 focus:outline-2 focus:ring-4 focus:ring-gray-300"
+                className="animate-fade-up flex w-fit items-center rounded-lg bg-brandpink px-6 py-3 text-lg font-semibold text-black transition delay-100 hover:opacity-80 focus:outline-2 focus:ring-4 focus:ring-gray-300"
               >
+                Loading...
                 <svg
                   aria-hidden="true"
                   role="status"
-                  className="mr-3 inline h-4 w-4 animate-spin rounded-full bg-slate-800 text-white"
+                  className="ml-3 h-4 w-4 animate-spin rounded-full bg-slate-800 text-white"
                   viewBox="0 0 100 101"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
@@ -86,7 +100,6 @@ export default function MyForm() {
                     fill="currentColor"
                   />
                 </svg>
-                Loading...
               </button>
             )}
           </form>

@@ -7,7 +7,7 @@
 ## Then run the following commands in your terminal
 
 ```bash
-git clone https://github.com/NeuroTechh/blogs.git
+git clone https://github.com/NeuroTechh/mainsite.git
 cd blogs
 npm install
 npm run dev

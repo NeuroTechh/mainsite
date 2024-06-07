@@ -1,31 +1,13 @@
 ---
+import client from "../../lib/sanity";
+import groq from "groq";
 const { slug } = Astro.params;
-import { supabase } from "../../lib/supabase";
-const { data, error } = await supabase
-	.from("links_naitechh")
-	.select("long_url")
-	.eq("short_url", slug)
-	.single();
-if (!error && data) {
-	return Astro.redirect(data.long_url);
+const query = groq`*[_type == "redirect" && slug.current == $slug]`;
+const params = { slug: slug };
+const redirect = await client.fetch(query, params);
+if (redirect.length > 0) {
+	return Astro.redirect(redirect[0].link);
 } else {
-    console.log(error)
 	return Astro.redirect("/");
 }
-// Astro.redirect("/")
 ---
-
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body
-		class="bg-background2 text-background w-full min-h-screen md:px-0 bgg"
-	>
-		{slug}
-	</body>
-</html>

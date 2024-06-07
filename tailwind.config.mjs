@@ -4,7 +4,7 @@ export default {
   theme: {
     extend: {
       colors: {
-        background: "#1a1a1a",
+        background: "#111",
         card: "#232323",
         text: "#f1f1f1",
         border: "#7c7c6f",
@@ -12,13 +12,11 @@ export default {
         brandred: "#fe0167",
         brandlav: "#a415fd",
         peach: "rgb(255, 204, 153)",
-        white: "#f1f1f1",
+        white: "#ffeadb",
       },
       fontFamily: {
-        sans: ["Space Grotesk", "sans-serif"],
-        mono: ["Fira Code", "monospace"],
-        sans2: ["Outfit", "sans-serif"],
-        display: ["'Press Start 2P'", "system-ui"],
+        incognito: ["var(--incognito)"],
+        outfit: ["Outfit", "sans-serif"],
       },
       backgroundImage: {
         grain:
