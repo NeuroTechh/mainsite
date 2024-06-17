@@ -1,6 +1,7 @@
 ---
 const { imgurl, title, description } = Astro.props;
 import Navbar from "../components/navbar.astro";
+import Footer from "../components/Footer.astro";
 import "aos/dist/aos.css";
 import "./global.css";
 import PostHog from "../components/posthog.astro";
@@ -62,8 +63,10 @@ import PostHog from "../components/posthog.astro";
 	</head>
 	<body
 		class="bg-grain [background-size:200px 200px] [background-position:0 0] bg-zinc-950 selection:bg-text selection:text-background font-outfit text-white" 
-		><Navbar />
+		>
+		<Navbar />
 		<slot />
+		<Footer />
 		<script src="https://unpkg.com/lucide@latest" is:inline></script>
 		<script is:inline>
 			lucide.createIcons();
