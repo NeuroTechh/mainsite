@@ -1,68 +1,74 @@
-# A Guide on Getting this setup on your local machine
 
-### Install Nodejs: https://nodejs.org/en
+# NeuroTechh MainSite
 
-### Install Git: https://git-scm.com/downloads
+Welcome to the **NeuroTechh MainSite** repository! 
 
-## Then run the following commands in your terminal
+We are a community of student developers who build projects and comeup with innovative solutions! Our aim is to have a community where students can learn and grow together.
 
-```bash
-git clone https://github.com/NeuroTechh/mainsite.git
-cd blogs
-npm install
-npm run dev
-```
+To learn more, visit our website: [NeuroTechh](https://neurotechh.live/)
 
-### Then open your browser and go to http://localhost:4321 Any changes you make to the code will be reflected in the browser
+---
 
-### Initial Tasks to be done
+## Getting Started
 
-- [ ] Install Nodejs
-- [ ] Install Git
-- [ ] Clone the repository
-- [ ] Install the dependencies and run the project
-- [ ] Open the browser and go to http://localhost:4321
-- [ ] Make changes to the code and see the changes in the browser
-- [ ] Create a new branch, add changes to git, commit them and then push the changes
+To set up this project on your local machine, follow these steps:
 
-### Next Steps
+### Prerequisites
 
-- [ ] On your branch, create a new file in the `pages` directory with the task name as the file name like `homepage.astro`
-- [ ] Import the Layout.astro file in the new file you created
-- [ ] Make the Content and make it responsive, asin it should look good on all screen sizes
-- [ ] Add the new file to git, commit the changes and push the changes to your branch
-- Create a pull request to the main branch
+Before you begin, make sure you have the following installed:
 
-### Coming to The pages
+- **Node.js**: [Download here](https://nodejs.org/en)
+- **Git**: [Download here](https://git-scm.com/downloads)
 
-Home Page
+### Setup Instructions
 
--   [x] Make Cards for the blogs and using Grids, make them responsive. On Pc, it should be 2 cards in a row and on mobile, 1 card in a row.
--   [x] The first card should be spanned across the whole width of the screen
--   [x] Make the entire card clickable and it should take you to the blog page
+1. **Clone the repository**:
 
-Blog Page
+   ```bash
+   git clone https://github.com/NeuroTechh/mainsite.git
+   ```
 
-- [ ] Using Tailwind Typography, make the blog page look good
-- [ ] This page will have Title, Author, Date, and the content of the blog post
-- [ ] Just add some random text for now using all the different styles of typography
-- [ ] Make the page responsive
+2. **Navigate to the project directory**:
 
-Contact US / About Page
+   ```bash
+   cd blogs
+   ```
 
-- [ ] Make a simple layout for the About us page
-- [ ] For Contact US Make a simple form with Name, Email, and Message
-- [ ] Add a submit button
-- [ ] Make the page responsive
+3. **Install dependencies**:
 
-# TODO
+   ```bash
+   npm install
+   ```
 
-- Code Glitch Effect on Hero
+4. **Run the development server**:
+
+   ```bash
+   npm run dev
+   ```
+
+5. **Open your browser** at `http://localhost:4321` to view the project.
+
+---
+
+## Contributing
+
+We welcome contributions from everyone! To contribute:
+
+1. **Review existing issues** on GitHub.
+2. **Create a new branch** for your work.
+3. Make your changes and ensure the project remains responsive.
+4. Commit your changes and **push your branch** to the repository.
+5. Submit a **pull request** to the `main` branch for review.
+
+For detailed guidelines, please refer to the [CONTRIBUTING.md](CONTRIBUTING.md) file.
+
+---
 
 ## Resources
 
--   For Learning About Astrojs: https://astro.build/
--   For Learning About Tailwindcss: https://tailwindcss.com/
--   For Setting Up Git: https://www.theodinproject.com/lessons/foundations-setting-up-git
--   For Quickstart on Git: https://www.theodinproject.com/lessons/foundations-git-basics
--   For Learning About Git: https://git-scm.com/book/en/v2
+- [Astro.js Documentation](https://astro.build/)
+- [Tailwind CSS Documentation](https://tailwindcss.com/)
+- [Setting Up Git](https://www.theodinproject.com/lessons/foundations-setting-up-git)
+- [Learn Git](https://git-scm.com/book/en/v2)
+
+Thank you for being a part of NeuroTechh! 🌐
