@@ -9,99 +9,96 @@ import PostHog from "../components/posthog.astro";
 
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta name="title" content={title} />
-		<meta name="description" content={description} />
+  <head>
+    <meta name="title" content={title} />
+    <meta name="description" content={description} />
 
-		<!-- Open Graph / Facebook -->
-		<meta property="og:type" content="website" />
-		<meta property="og:url" content="https://neurotechh.live" />
-		<meta property="og:title" content={title} />
-		<meta property="og:description" content={description} />
-		<meta property="og:image" content={imgurl} />
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://neurotechh.xyz" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={imgurl} />
 
-		<!-- Twitter -->
-		<meta property="twitter:card" content="summary_large_image" />
-		<meta property="twitter:url" content="https://neurotechh.live/" />
-		<meta property="twitter:title" content={title} />
-		<meta property="twitter:description" content={description} />
-		<meta property="twitter:image" content={imgurl} />
-		<link rel="sitemap" href="/sitemap-index.xml" />
-		<meta charset="UTF-8" />
-		<link
-			rel="icon"
-			type="image/svg+xml"
-			href="https://neurotechh.live/icon.svg"
-		/>
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://neurotechh.xyz/" />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content={imgurl} />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <meta charset="UTF-8" />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="https://neurotechh.xyz/icon.svg"
+    />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
 
-		<link rel="preconnect" href="https://fonts.googleapis.com" />
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-		<link
-			href="https://fonts.googleapis.com/css2?family=Anton&family=Fira+Code:wght@300..700&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Outfit:wght@100..900&family=Press+Start+2P&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&family=Space+Grotesk:wght@300..700&display=swap"
-			rel="stylesheet"
-		/>
-		<style>
-			body {
-				background-size: 200px 200px;
-				background-position: 0 0;
-				color: #ffeadb;
-				font-size: 1rem;
-				font-weight: 300;
-				line-height: 1.5;
-				
-			}
-		</style>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Anton&family=Fira+Code:wght@300..700&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Outfit:wght@100..900&family=Press+Start+2P&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&family=Space+Grotesk:wght@300..700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        background-size: 200px 200px;
+        background-position: 0 0;
+        color: #ffeadb;
+        font-size: 1rem;
+        font-weight: 300;
+        line-height: 1.5;
+      }
+    </style>
 
-		<script>
-			import AOS from "aos";
-			AOS.init();
-		</script>
-		<PostHog />
-	</head>
-	<body
-		class="bg-grain [background-size:200px 200px] [background-position:0 0] bg-zinc-950 selection:bg-text selection:text-background font-outfit text-white" 
-		>
-		<Navbar />
-		<slot />
-		<Footer />
-		<script src="https://unpkg.com/lucide@latest" is:inline></script>
-		<script is:inline>
-			lucide.createIcons();
-			document.documentElement.style.setProperty(
-				"--nav-height",
-				`${document.getElementById("navbarr").offsetHeight}px`
-			);
-		</script>
-		<script>
-			window.addEventListener("scroll", function () {
-				const speaker = document.querySelector("#round3");
-				const sponsor = document.querySelector("#Speakers");
-				let scrollTop = window.scrollY;
-				// console.log(speaker.getBoundingClientRect().bottom);
-				if (window.innerWidth > 800) {
-					scrollTop -= 1800;
-				} else {
-					scrollTop -= 3200;
-				}
-				const line = document.querySelector("#line") as HTMLElement;
-				if (sponsor.getBoundingClientRect().bottom < 300) {
-					line.style.height = scrollTop + "px";
-				}
-			});
-			document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-				anchor.addEventListener("click", function (e) {
-					e.preventDefault();
+    <script>
+      import AOS from "aos";
+      AOS.init();
+    </script>
+    <PostHog />
+  </head>
+  <body
+    class="bg-grain [background-size:200px 200px] [background-position:0 0] bg-zinc-950 selection:bg-text selection:text-background font-outfit text-white"
+  >
+    <Navbar />
+    <slot />
+    <Footer />
+    <script src="https://unpkg.com/lucide@latest" is:inline></script>
+    <script is:inline>
+      lucide.createIcons();
+      document.documentElement.style.setProperty(
+        "--nav-height",
+        `${document.getElementById("navbarr").offsetHeight}px`
+      );
+    </script>
+    <script>
+      window.addEventListener("scroll", function () {
+        const speaker = document.querySelector("#round3");
+        const sponsor = document.querySelector("#Speakers");
+        let scrollTop = window.scrollY;
+        // console.log(speaker.getBoundingClientRect().bottom);
+        if (window.innerWidth > 800) {
+          scrollTop -= 1800;
+        } else {
+          scrollTop -= 3200;
+        }
+        const line = document.querySelector("#line") as HTMLElement;
+        if (sponsor.getBoundingClientRect().bottom < 300) {
+          line.style.height = scrollTop + "px";
+        }
+      });
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
 
-					document
-						.querySelector(this.getAttribute("href"))
-						.scrollIntoView({
-							behavior: "smooth",
-						});
-				});
-			});
-		</script>
-	</body>
+          document.querySelector(this.getAttribute("href")).scrollIntoView({
+            behavior: "smooth",
+          });
+        });
+      });
+    </script>
+  </body>
 </html>

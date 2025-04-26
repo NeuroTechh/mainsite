@@ -1,11 +1,10 @@
-
 # NeuroTechh MainSite
 
-Welcome to the **NeuroTechh MainSite** repository! 
+Welcome to the **NeuroTechh MainSite** repository!
 
 We are a community of student developers who build projects and comeup with innovative solutions! Our aim is to have a community where students can learn and grow together.
 
-To learn more, visit our website: [NeuroTechh](https://neurotechh.live/)
+To learn more, visit our website: [NeuroTechh](https://neurotechh.xyz/)
 
 ---
 

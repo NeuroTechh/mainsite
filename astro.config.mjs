@@ -10,7 +10,7 @@ import react from "@astrojs/react";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://neurotechh.live/",
+  site: "https://neurotechh.xyz/",
   integrations: [tailwind(), sitemap(), react()],
   output: "server",
   adapter: vercel({
