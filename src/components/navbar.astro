@@ -42,7 +42,18 @@ import { Image } from "astro:assets";
           <a href="/blogs" class="hover:underline">Blogs</a>
         </li>
         <li>
-          <a href="/#contact" class="hover:underline">Contact</a>
+          <a href="/contact" class="hover:underline">Contact</a>
+        </li>
+        <li>
+          <Dropdown>
+            <button class="hover:underline">Legal</button>
+            <DropdownItems>
+              <a href="/privacy-policy" class="block px-4 py-2 hover:bg-zinc-800">Privacy Policy</a>
+              <a href="/terms" class="block px-4 py-2 hover:bg-zinc-800">Terms & Conditions</a>
+              <a href="/cancellation-refund" class="block px-4 py-2 hover:bg-zinc-800">Cancellation & Refund</a>
+              <a href="/shipping-delivery" class="block px-4 py-2 hover:bg-zinc-800">Shipping & Delivery</a>
+            </DropdownItems>
+          </Dropdown>
         </li>
       </ul>
     </MenuItems>
