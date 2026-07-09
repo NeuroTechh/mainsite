@@ -1,23 +1,23 @@
 import { defineConfig } from "astro/config";
-import tailwind from "@astrojs/tailwind";
-import sanity from "@sanity/astro";
-import node from "@astrojs/node";
-import sitemap from "@astrojs/sitemap";
-import vercel from "@astrojs/vercel/serverless";
-import preact from "@astrojs/preact";
-
 import react from "@astrojs/react";
+import sitemap from "@astrojs/sitemap";
+import node from "@astrojs/node";
+import tailwindcss from "@tailwindcss/vite";
 
-// https://astro.build/config
 export default defineConfig({
-  site: "https://neurotechh.xyz/",
-  integrations: [tailwind(), sitemap(), react()],
+  site: "https://neurotechh.mpst.me",
   output: "server",
-  adapter: vercel({
-    webAnalytics: {
-      enabled: true,
-    },
+  adapter: node({
+    mode: "standalone",
   }),
+  integrations: [
+    react(),
+    sitemap(),
+    sanity(),
+  ],
+  vite: {
+    plugins: [tailwindcss()],
+  },
   prefetch: {
     prefetchAll: true,
   },
