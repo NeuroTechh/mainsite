@@ -5,7 +5,14 @@ import { urlFor } from "../../lib/image";
 import { formatDate } from "../../lib/date";
 import ProgressBar from "../../components/progressbar";
 import groq from "groq";
-import MyForm from "../../components/form";
+
+export async function getStaticPaths() {
+	const slugs = await client.fetch(
+		groq`*[_type == "post" && defined(slug.current)].slug.current`
+	);
+	return slugs.map((slug) => ({ params: { slug } }));
+}
+
 let { slug } = Astro.params;
 
 const {
@@ -177,7 +184,6 @@ import PortableText from "../../components/PortableText.astro";
 				y2="10.49"></line></svg
 		>
 	</button>
-	<MyForm client:load />
 
 	<div
 		class={`grid justify-center ${

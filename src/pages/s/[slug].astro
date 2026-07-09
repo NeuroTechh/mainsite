@@ -1,13 +1,17 @@
 ---
 import client from "../../lib/sanity";
 import groq from "groq";
-const { slug } = Astro.params;
-const query = groq`*[_type == "redirect" && slug.current == $slug]`;
-const params = { slug: slug };
-const redirect = await client.fetch(query, params);
-if (redirect.length > 0) {
-	return Astro.redirect(redirect[0].link);
-} else {
-	return Astro.redirect("/");
+
+export async function getStaticPaths() {
+	const redirects = await client.fetch(
+		groq`*[_type == "redirect" && defined(slug.current)]{ "slug": slug.current, link }`
+	);
+	return redirects.map(({ slug, link }) => ({
+		params: { slug },
+		props: { link },
+	}));
 }
+
+const { link } = Astro.props;
+return Astro.redirect(link || "/");
 ---

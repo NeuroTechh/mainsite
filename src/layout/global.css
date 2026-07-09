@@ -1,3 +1,6 @@
+@import "tailwindcss";
+@config "../../tailwind.config.mjs";
+
 ::root {
   --nav-height: 70px; /* You HAVE to give a default fallback value */
 }

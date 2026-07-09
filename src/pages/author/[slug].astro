@@ -5,6 +5,14 @@ import Layout from "../../layout/Layout.astro";
 import PortableText from "../../components/PortableText.astro";
 import { urlFor } from "../../lib/image";
 import { formatDate } from "../../lib/date";
+
+export async function getStaticPaths() {
+	const slugs = await client.fetch(
+		groq`*[_type == "author" && defined(slug.current)].slug.current`
+	);
+	return slugs.map((slug) => ({ params: { slug } }));
+}
+
 let { slug } = Astro.params;
 
 const author = await client.fetch(
