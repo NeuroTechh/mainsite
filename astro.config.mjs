@@ -5,7 +5,7 @@ import sitemap from "@astrojs/sitemap";
 import tailwindcss from "@tailwindcss/vite";
 
 export default defineConfig({
-  site: "https://neurotechh.xyz",
+  site: "https://neurotechh.mpst.me",
 
   output: "static",
 
